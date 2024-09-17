@@ -1,0 +1,196 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="WebApplication3.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - My ASP.NET Application</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+</head>
+<body>
+    <form runat="server" class="full">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <nav class="navbar navbar-expand-sm">
+            <button type="button" class=".sidebar-nav sidebar-toggler border-0 bg-white" title="Toggle sidebar"
+                style="margin-left:25px">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="container d-flex justify-content-between">
+                <!--<a class="navbar-brand" runat="server" href="~/"></a>!-->
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-around" style="margin : 0 25%">
+                    <ul class="navbar-nav flex-grow-1 justify-content-around">
+                        <li class="nav-item"><a class="nav-link text-black" runat="server" href="~/">Home</a></li>
+                        <li class="nav-item "><a class="nav-link text-black" runat="server" href="~/Contact">Help/Support</a></li>
+                        <li class="nav-item "><a class="nav-link text-black" runat="server" href="~/About">About</a></li>
+                    </ul>
+                </div>
+            </div>
+            <button type="button" class="bg-black text-white log-out" id="log-out" style="margin-right:25px">LOGOUT</button>
+        </nav>
+    <div id="logoutPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <p>Are you sure you want to leave?</p>
+            <button id="confirmLogout" class="btn btn-danger">Yes</button>
+            <button id="cancelLogout" type="button" class="btn btn-secondary">No</button>
+        </div>
+    </div>
+    <div id="sidebar" class="sidebar bg-white">
+        <img src="photos/user.jpg" class="w-50 align-self-center m-lg-5" style="border-radius:50%;"/>
+        <button type="button" id="closeSidebar" class="close-btn">×</button>
+        <ul class="sidebar-nav">
+            <li><a href="~/">INBOX</a></li>
+            <li><a href="~/">NEW APPLICATON</a></li>
+            <li><a href="~/">EXISTING APPLICATION</a></li>
+            <li><a href="~/">VERIFICATION STATUS</a></li>
+            <li><a href="/ViewStats">VIEW STATS</a></li>
+        </ul>
+    </div>
+    <div class="container body-content">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+        <hr />
+        <footer>
+            <p>&copy; <%: DateTime.Now.Year %> - Copyright Reserved : Team Kalki</p>
+        </footer>
+    </div>
+    </form>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+    <style>
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        .sidebar li{
+            list-style-type:none;
+        }
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+        .active{
+            border-bottom : 2px solid black;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 36px;
+            background: none;
+            border: none;
+            color: #818181;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: #f1f1f1;
+        }
+        .popup {
+            display: none;
+            position: absolute;
+            top: 50px; /* Adjust this value as needed */
+            right: 10px; /* Adjust this value as needed */
+            width: 300px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+            transition: opacity 0.3s;
+            z-index: 1000;
+        }
+
+        .popup.active {
+            display: block;
+        }
+
+        .popup-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+}
+    </style>
+    <script>
+        document.querySelector('.sidebar-toggler').addEventListener('click', function () {
+            document.getElementById('sidebar').classList.toggle('active');
+        });
+        document.getElementById('closeSidebar').addEventListener('click', function () {
+            document.getElementById('sidebar').classList.remove('active');
+        });
+        //document.getElementById('log-out').addEventListener('click', function () {
+        //    confirm('Are you sure to exit')
+        //});
+        // Add this JavaScript inside the <script> tag
+        document.getElementById('log-out').addEventListener('click', function () {
+            document.getElementById('logoutPopup').classList.add('active');
+        });
+
+        document.querySelector('.close-popup').addEventListener('click', function () {
+            document.getElementById('logoutPopup').classList.remove('active');
+        });
+
+        document.getElementById('cancelLogout').addEventListener('click', function () {
+            document.getElementById('logoutPopup').classList.remove('active');
+        });
+
+        document.getElementById('confirmLogout').addEventListener('click', function () {
+            // Add your logout logic here
+            alert('Logged out');
+            document.getElementById('logoutPopup').classList.remove('active');
+        });
+
+    </script>
+</body>
+</html>
