@@ -13,6 +13,11 @@ textarea {
     max-width: 280px;
 }
 
+.bottom {
+    position: absolute;
+    bottom: 0;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .body-content {
@@ -20,6 +25,3 @@ textarea {
     }
 }
 
-.full {
-    height:calc(100%-50px);
-}

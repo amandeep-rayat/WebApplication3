@@ -4,10 +4,10 @@
     <main aria-labelledby="title" class="full">
         <div class="d-flex justify-content-around">
     <section class="col-md-3" aria-labelledby="librariesTitle">
-        <image src ="photos/photo.jpg" alt="logo" class="w-100"></image>
+        <image src ="photos/photo.png" alt="logo" class="w-100"></image>
     </section>
     <section class=""  style="max-width:900px" aria-labelledby="hostingTitle">
-        <h4>Write Us:</h4>
+        <h4>About Us:</h4>
         <textarea style="max-width:500px;" rows="8" cols="400"></textarea>
     </section>
 </div>

@@ -11,61 +11,52 @@ namespace WebApplication3
 {
 
 
-    public partial class _Default
+    public partial class Verification
     {
 
         /// <summary>
-        /// NewAppButton control.
+        /// txtApplicantName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button NewAppButton;
+        protected global::System.Web.UI.WebControls.TextBox txtApplicantName;
 
         /// <summary>
-        /// VerifyStatusButton control.
+        /// txtScholarshipName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button VerifyStatusButton;
+        protected global::System.Web.UI.WebControls.TextBox txtScholarshipName;
 
         /// <summary>
-        /// ExistingAppButton control.
+        /// txtYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ExistingAppButton;
+        protected global::System.Web.UI.WebControls.TextBox txtYear;
 
         /// <summary>
-        /// ViewStatsButton control.
+        /// btnSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ViewStatsButton;
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
 
         /// <summary>
-        /// BusinessRulesButton control.
+        /// GridView2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BusinessRulesButton;
-
-        /// <summary>
-        /// AddVerifierButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddVerifierButton;
+        protected global::System.Web.UI.WebControls.GridView GridView2;
     }
 }

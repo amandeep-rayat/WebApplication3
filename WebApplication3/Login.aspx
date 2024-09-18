@@ -1,12 +1,10 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebApplication3.Site1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebApplication3.Login" %>
 
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <title>Login Page</title>
     <style>
         * {
             margin: 0;
@@ -41,8 +39,8 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            border: 2px solid #003366;
-            / Light Blue Border */ margin-bottom: 30px;
+            border: 2px solid #003366; /* Light Blue Border */ 
+            margin-bottom: 30px;
         }
 
         .input-group {
@@ -63,6 +61,8 @@
             input[type="text"]:focus, input[type="password"]:focus {
                 border-color: #003366; /* Dark Blue */
             }
+
+
 
         .forgot-password {
             display: block;
@@ -96,15 +96,24 @@
 
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-            <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Copyright Reserved : Team Kalki</p>
-            </footer>
+    <div class="login-container">
+        <h2>LOGIN</h2>
+        <div class="profile-photo">
+            <img src="/photos/user_login.jpg" />
         </div>
-    </form>
+        <form id="form1" runat="server">
+            <div class="input-group">
+                <input type="text" id="userid" placeholder="USER ID" required="required"/>
+                <span class="error-icon"></span>
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Password" required="required"/>
+                <span class="error-icon"></span>
+            </div>
+            <a href="ForgotPassword.aspx" class="forgot-password">Forgot Password?</a>
+            <asp:Button ID="Button1" type="submit" class="login-btn" runat="server" OnClick="Button1_Click" Text="LOGIN" />
+        </form>
+    </div>
+
 </body>
 </html>

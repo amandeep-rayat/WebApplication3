@@ -77,7 +77,7 @@
         <asp:ContentPlaceHolder ID="MainContent" runat="server">
         </asp:ContentPlaceHolder>
         <hr />
-        <footer>
+        <footer class="text-center">
             <p>&copy; <%: DateTime.Now.Year %> - Copyright Reserved : Team Kalki</p>
         </footer>
     </div>

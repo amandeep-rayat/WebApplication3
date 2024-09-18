@@ -11,61 +11,61 @@ namespace WebApplication3
 {
 
 
-    public partial class _Default
+    public partial class ForgotPassword
     {
 
         /// <summary>
-        /// NewAppButton control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button NewAppButton;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// VerifyStatusButton control.
+        /// txtEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button VerifyStatusButton;
+        protected global::System.Web.UI.WebControls.TextBox txtEmail;
 
         /// <summary>
-        /// ExistingAppButton control.
+        /// SendOTP control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ExistingAppButton;
+        protected global::System.Web.UI.WebControls.Button SendOTP;
 
         /// <summary>
-        /// ViewStatsButton control.
+        /// txtOTP control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ViewStatsButton;
+        protected global::System.Web.UI.WebControls.TextBox txtOTP;
 
         /// <summary>
-        /// BusinessRulesButton control.
+        /// lblTimer control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BusinessRulesButton;
+        protected global::System.Web.UI.WebControls.Label lblTimer;
 
         /// <summary>
-        /// AddVerifierButton control.
+        /// btnSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddVerifierButton;
+        protected global::System.Web.UI.WebControls.Button btnSubmit;
     }
 }
