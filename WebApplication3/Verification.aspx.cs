@@ -19,7 +19,13 @@ namespace WebApplication3
             string applicantName = txtApplicantName.Text.Trim();
             string scholarshipName = txtScholarshipName.Text.Trim();
             string year = txtYear.Text.Trim();
-
+            if(string.IsNullOrEmpty(applicantName) || string.IsNullOrEmpty(scholarshipName) || string.IsNullOrEmpty(year))
+            {
+                //  Show error messages if any field is empty
+                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Please fill all the required fields.');",true);
+                GridView2.Visible = false;
+                return;
+            }
             // Bind data to GridView
             BindGridView(applicantName, scholarshipName, year);
         }
