@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="NewApplicant.aspx.cs" Inherits="WebApplication3.NewApplicantaspx" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="NewApplicant.aspx.cs" Inherits="WebApplication3.NewApplicant" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
         /* General Page Styles */
@@ -167,9 +167,9 @@
     <div class="search-section">
         <div class="search-container">
             <input type="text" id="search-bar" class="search-bar" placeholder="Search Applicant / Scholarship / Status" />
-            <button id="search-button" class="search-button">🔍</button>
+            <button id="search-button" class="search-button" type="button">🔍</button>
         </div>
-        <button id="filter-button" class="filter-button">FILTER</button>
+        <button id="filter-button" class="filter-button" type="button">FILTER</button>
     </div>
 
     <!-- Filter Modal -->
@@ -275,20 +275,20 @@
         }
 
         function applyFiltersAndSearch() {
-            constdegreeFilters = Array.from(document.querySelectorAll('input[name="degree"]:checked')).map(cb => cb.value);
-            conststatusFilters = Array.from(document.querySelectorAll('input[name="status"]:checked')).map(cb => cb.value);
-            constsearchQuery = document.getElementById("search-bar").value.toLowerCase();
+            const degreeFilters = Array.from(document.querySelectorAll('input[name="degree"]:checked')).map(cb => cb.value);
+            const statusFilters = Array.from(document.querySelectorAll('input[name="status"]:checked')).map(cb => cb.value);
+            const searchQuery = document.getElementById("search-bar").value.toLowerCase();
             const rows = document.querySelectorAll(".applicant-table tbody tr");
 
             rows.forEach(row => {
                 const cells = row.children;
-                constapplicantId = cells[0].textContent.toLowerCase();
-                constscholarshipName = cells[1].textContent.toLowerCase();
+                const applicantId = cells[0].textContent.toLowerCase();
+                const scholarshipName = cells[1].textContent.toLowerCase();
                 const status = cells[2].textContent.toLowerCase();
 
-                constmatchesDegree = degreeFilters.length === 0 || degreeFilters.some(filter => scholarshipName.includes(filter.toLowerCase()));
-                constmatchesStatus = statusFilters.length === 0 || statusFilters.some(filter => status.includes(filter.toLowerCase()));
-                constmatchesSearch = searchQuery === "" || applicantId.includes(searchQuery) || scholarshipName.includes(searchQuery) || status.includes(searchQuery);
+                const matchesDegree = degreeFilters.length === 0 || degreeFilters.some(filter => scholarshipName.includes(filter.toLowerCase()));
+                const matchesStatus = statusFilters.length === 0 || statusFilters.some(filter => status.includes(filter.toLowerCase()));
+                const matchesSearch = searchQuery === "" || applicantId.includes(searchQuery) || scholarshipName.includes(searchQuery) || status.includes(searchQuery);
 
                 if (matchesDegree && matchesStatus && matchesSearch) {
                     row.style.display = "";
