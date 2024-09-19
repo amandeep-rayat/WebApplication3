@@ -52,13 +52,13 @@
                     </ul>
                 </div>
             </div>
-            <button type="button" class="bg-black text-white log-out" id="log-out" style="margin-right:25px">LOGOUT</button>
+            <asp:button runat="server" type="button" class="bg-black text-white log-out" Id="LogOut" style="margin-right:25px" Text="LOGOUT"></asp:button>
         </nav>
     <div id="logoutPopup" class="popup">
         <div class="popup-content">
             <span class="close-popup">&times;</span>
             <p>Are you sure you want to leave?</p>
-            <button id="confirmLogout" class="btn btn-danger">Yes</button>
+            <asp:button runat="server" id="confirmLogout" class="btn btn-danger" Text="Yes"></asp:button>
             <button id="cancelLogout" type="button" class="btn btn-secondary">No</button>
         </div>
     </div>
@@ -66,11 +66,11 @@
         <img src="photos/user.jpg" class="w-50 align-self-center m-lg-5" style="border-radius:50%;"/>
         <button type="button" id="closeSidebar" class="close-btn">×</button>
         <ul class="sidebar-nav">
-            <li><a href="~/">INBOX</a></li>
-            <li><a href="~/">NEW APPLICATON</a></li>
-            <li><a href="~/">EXISTING APPLICATION</a></li>
-            <li><a href="~/">VERIFICATION STATUS</a></li>
-            <li><a href="/ViewStats">VIEW STATS</a></li>
+            <li><a href="~/" runat="server">INBOX</a></li>
+            <li><a href="~/NewApplicant" runat="server">NEW APPLICATON</a></li>
+            <li><a href="~/ExistingApplicant" runat="server">EXISTING APPLICATION</a></li>
+            <li><a href="~/VerificationStatus" runat="server">VERIFICATION STATUS</a></li>
+            <li><a href="/ViewStats" runat="server">VIEW STATS</a></li>
         </ul>
     </div>
     <div class="container body-content">
