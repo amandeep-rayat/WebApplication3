@@ -32,7 +32,7 @@ namespace WebApplication3
                     // Simulate changing the password in the system (e.g., updating the database)
                     // Show a success message after the password is successfully changed.
                     Response.Write("<script>alert('Password changed successfully!');</script>");
-                    Response.Redirect("LoginPage.aspx");
+                    Response.Redirect("Login.aspx");
                 }
                 else
                 {

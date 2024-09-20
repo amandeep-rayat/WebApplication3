@@ -13,5 +13,10 @@ namespace WebApplication3
         {
 
         }
+
+        protected void ConfirmLogOut_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+        }
     }
 }

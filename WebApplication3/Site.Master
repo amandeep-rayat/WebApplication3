@@ -52,13 +52,13 @@
                     </ul>
                 </div>
             </div>
-            <asp:button runat="server" type="button" class="bg-black text-white log-out" Id="LogOut" style="margin-right:25px" Text="LOGOUT"></asp:button>
+            <button type="button" class="bg-black text-white" id="log-out" style="margin-right:25px">LOGOUT</button>
         </nav>
     <div id="logoutPopup" class="popup">
         <div class="popup-content">
             <span class="close-popup">&times;</span>
             <p>Are you sure you want to leave?</p>
-            <asp:button runat="server" id="confirmLogout" class="btn btn-danger" Text="Yes"></asp:button>
+            <asp:button runat="server" id="confirmLogout" class="btn btn-danger" Text="Yes" OnClick="ConfirmLogOut_Click"></asp:button>
             <button id="cancelLogout" type="button" class="btn btn-secondary">No</button>
         </div>
     </div>
