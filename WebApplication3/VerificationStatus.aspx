@@ -221,7 +221,7 @@
                         <td><%= applicant.ScholarshipName %></td>
                         <td><%= applicant.Status %></td>
                         <td><%= applicant.VerificationStatus %></td>
-                        <td><button type="button">View</button></td>
+                        <td><asp:button runat="server" type="button" ID="ViewButton"  onclick="ViewButton_Click" Text="View"></asp:button></td>
                     </tr>
                 <% } %>
             </tbody>

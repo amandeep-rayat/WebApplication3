@@ -19,6 +19,11 @@ namespace WebApplication3
             }
         }
 
+        protected void ViewButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Verification.aspx");
+        }
+
         // Simulate fetching data from a database
         private List<Applicant> GetApplicants()
         {
