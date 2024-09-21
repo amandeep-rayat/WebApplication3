@@ -40,12 +40,12 @@ namespace WebApplication3
 
         protected void BusinessRulesButton_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("BusinessRules.aspx");
         }
 
         protected void AddVerifierButton_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("AddVerifier.aspx");
         }
     }
 }
