@@ -1,23 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VerifierSelectCandidate.aspx.cs" Inherits="WebApplication3.VerifierSelectCandidate" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: white;
-            color: black;
-            margin: 0;
-            padding: 0;
-        }
-
-        .header {
-            background-color: #004080;
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
         .search-section {
             display: flex;
             justify-content: center;
@@ -31,7 +14,8 @@
         }
 
         .search-bar {
-            width: 900px;
+            max-width: none;
+            width:900px;
             padding: 10px;
             border: 2px solid #004080;
             border-radius: 30px;
@@ -78,10 +62,10 @@
                 background-color: #003366;
             }
 
-        .decision-radio {
+/*        .decision-radio {
             display: flex;
             justify-content: space-around;
-        }
+        }*/
 
             .decision-radio label {
                 display: inline-block;
@@ -107,7 +91,8 @@
         }
 
         textarea {
-            width: 100%;
+            width:100%;
+            max-width: none;
             height: 50px;
             border: 1px solid black;
             border-radius: 5px;
@@ -212,29 +197,29 @@
         </tbody>
     </table>
 
-<div class="comment-section">
-<textarea placeholder="COMMENT / REMARK / LIST OF REJECTED DOCUMENT / VERIFIED"></textarea>
-<button class="send-btn">SEND</button>
-</div>
+    <div class="comment-section">
+        <textarea placeholder="COMMENT / REMARK / LIST OF REJECTED DOCUMENT / VERIFIED"></textarea>
+        <button class="send-btn">SEND</button>
+    </div>
 
     <script>
-        // Function to filter and search by S.No. or Document Name
-        function applyFiltersAndSearch() {
-            const searchQuery = document.getElementById("search-bar").value.toLowerCase();
-            const rows = document.querySelectorAll(".applicant-table tbody tr");
+            // Function to filter and search by S.No. or Document Name
+            function applyFiltersAndSearch() {
+                const searchQuery = document.getElementById("search-bar").value.toLowerCase();
+                const rows = document.querySelectorAll(".applicant-table tbody tr");
 
-            rows.forEach(row => {
-                const sno = row.children[0].textContent.toLowerCase();
-                const documentName = row.children[1].textContent.toLowerCase();
-                const matchesSearch = sno.includes(searchQuery) || documentName.includes(searchQuery);
+                rows.forEach(row => {
+                    const sno = row.children[0].textContent.toLowerCase();
+                    const documentName = row.children[1].textContent.toLowerCase();
+                    const matchesSearch = sno.includes(searchQuery) || documentName.includes(searchQuery);
 
-                // Show row if it matches the search query, otherwise hide it
-                row.style.display = matchesSearch ? "" : "none";
-            });
-        }
+                    // Show row if it matches the search query, otherwise hide it
+                    row.style.display = matchesSearch ? "" : "none";
+                });
+            }
 
-        // Add event listener for real-time filtering as the user types
-        document.getElementById("search-bar").addEventListener("input", applyFiltersAndSearch);
+            // Add event listener for real-time filtering as the user types
+            document.getElementById("search-bar").addEventListener("input", applyFiltersAndSearch);
     </script>
 
 </asp:Content>

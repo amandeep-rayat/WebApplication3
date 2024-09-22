@@ -1,35 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Verifier.aspx.cs" Inherits="WebApplication3.Verifier" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
-        /* General Page Styles */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: white;
-            color: black;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Header Section */
-        .header {
-            background-color: #004080;
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-        }
-
-            nav a:hover {
-                text-decoration: underline;
-            }
-
         .logout {
             background-color: #004080;
             color: white;
@@ -171,7 +142,7 @@
         <button id="filter-button" class="filter-button" type="button">FILTER</button>
     </div>
 
-<!-- Filter Modal -->
+    <!-- Filter Modal -->
     <div id="filter-modal" class="modal">
         <div class="modal-content">
             <span id="close-modal" class="close">×</span>
@@ -192,7 +163,7 @@
         </div>
     </div>
 
-<!-- Applicant Table -->
+    <!-- Applicant Table -->
     <table class="applicant-table">
         <thead>
             <tr>

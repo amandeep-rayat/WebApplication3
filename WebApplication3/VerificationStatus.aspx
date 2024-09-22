@@ -2,33 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
         /* General Page Styles */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: white;
-            color: black;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Header Section */
-        .header {
-            background-color: #004080; /* Dark blue for header */
-            color: white;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-        }
-
-        nav a:hover {
-            text-decoration: underline;
-        }
 
         .logout {
             background-color: #004080;
@@ -38,9 +11,9 @@
             cursor: pointer;
         }
 
-        .logout:hover {
-            background-color: #003366;
-        }
+            .logout:hover {
+                background-color: #003366;
+            }
 
         /* Centered Search Section */
         .search-section {
@@ -73,9 +46,9 @@
             cursor: pointer;
         }
 
-        .search-button:hover {
-            background-color: #003366; /* Darker blue on hover */
-        }
+            .search-button:hover {
+                background-color: #003366; /* Darker blue on hover */
+            }
 
         .filter-button {
             background-color: #004080; /* Blue background for filter button */
@@ -87,9 +60,9 @@
             cursor: pointer;
         }
 
-        .filter-button:hover {
-            background-color: #003366; /* Darker blue on hover */
-        }
+            .filter-button:hover {
+                background-color: #003366; /* Darker blue on hover */
+            }
 
         /* Filter Modal Styles */
         .modal {
@@ -122,12 +95,12 @@
             font-weight: bold;
         }
 
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
 
         /* Table Styling */
         .applicant-table {
@@ -136,26 +109,26 @@
             border-collapse: collapse;
         }
 
-        .applicant-table th {
-            background-color: #004080; /* Blue background for table headers */
-            color: white;
-            padding: 15px;
-            text-align: left;
-        }
+            .applicant-table th {
+                background-color: #004080; /* Blue background for table headers */
+                color: white;
+                padding: 15px;
+                text-align: left;
+            }
 
-        .applicant-table td {
-            padding: 15px;
-            border: 1px solid #004080; /* Blue border for table cells */
-            text-align: left;
-        }
+            .applicant-table td {
+                padding: 15px;
+                border: 1px solid #004080; /* Blue border for table cells */
+                text-align: left;
+            }
 
-        .applicant-table tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+            .applicant-table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
 
-        .applicant-table tr:hover {
-            background-color: #e6f7ff; /* Light blue hover effect */
-        }
+            .applicant-table tr:hover {
+                background-color: #e6f7ff; /* Light blue hover effect */
+            }
 
         /* Dropdown Icon */
         .dropdown-icon {
@@ -164,70 +137,83 @@
         }
     </style>
 
-    <!-- Centered Search Section with Filter Button -->
-        <div class="search-section">
-            <div class="search-container">
-                <input type="text" id="search-bar" class="search-bar" placeholder="Search Applicant / Scholarship / Status" />
-                <button type="button" id="search-button" class="search-button">🔍</button>
-            </div>
-            <button type="button" id="filter-button" class="filter-button">FILTER</button>
+    <!-- Centered Search Section with Filter Button -->
+    <div class="search-section">
+        <div class="search-container">
+            <input type="text" id="search-bar" class="search-bar" placeholder="Search Applicant / Scholarship / Status" />
+            <button type="button" id="search-button" class="search-button">🔍</button>
         </div>
+        <button type="button" id="filter-button" class="filter-button">FILTER</button>
+    </div>
 
-        <!-- Filter Modal -->
-        <div id="filter-modal" class="modal">
-            <div class="modal-content">
-                <span id="close-modal" class="close">×</span>
-                <div class="filter-options">
-                    <h4>Filter by Degree:</h4>
-                    <label><input type="checkbox" name="degree" value="UG"> UG</label>
-                    <label><input type="checkbox" name="degree" value="PG"> PG</label>
-                    <label><input type="checkbox" name="degree" value="PHD"> PHD</label>
+    <!-- Filter Modal -->
+    <div id="filter-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close">×</span>
+            <div class="filter-options">
+                <h4>Filter by Degree:</h4>
+                <label>
+                    <input type="checkbox" name="degree" value="UG">
+                    UG</label>
+                <label>
+                    <input type="checkbox" name="degree" value="PG">
+                    PG</label>
+                <label>
+                    <input type="checkbox" name="degree" value="PHD">
+                    PHD</label>
 
-                    <h4>Filter by Status:</h4>
-                    <label><input type="checkbox" name="status" value="Completed"> Completed</label>
-                    <label><input type="checkbox" name="status" value="In Progress"> In Progress</label>
-                    <label><input type="checkbox" name="status" value="Incomplete"> Incomplete</label>
-                </div>
+                <h4>Filter by Status:</h4>
+                <label>
+                    <input type="checkbox" name="status" value="Completed">
+                    Completed</label>
+                <label>
+                    <input type="checkbox" name="status" value="In Progress">
+                    In Progress</label>
+                <label>
+                    <input type="checkbox" name="status" value="Incomplete">
+                    Incomplete</label>
             </div>
         </div>
+    </div>
 
-        <!-- Applicant Table -->
-        <table class="applicant-table">
-            <thead>
-                <tr>
-                    <th>APPLICANT ID</th>
-                    <th>SCHOLARSHIP NAME</th>
-                    <th>STATUS</th>
-                    <th>VERIFICATION STATUS</th>
-                    <th>DOCUMENT<span class="dropdown-icon"></span></th>
-                </tr>
-            </thead>
-            <tbody>
-                <% 
-                    // Sample Data (you can replace this with dynamic data from a database)
-                    var applicants = new[]
-                    {
+    <!-- Applicant Table -->
+    <table class="applicant-table">
+        <thead>
+            <tr>
+                <th>APPLICANT ID</th>
+                <th>SCHOLARSHIP NAME</th>
+                <th>STATUS</th>
+                <th>VERIFICATION STATUS</th>
+                <th>DOCUMENT<span class="dropdown-icon"></span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% 
+                // Sample Data (you can replace this with dynamic data from a database)
+                var applicants = new[]
+                {
                         new { ApplicantID = "123456", ScholarshipName = "UG MP STATE", Status = "Completed", VerificationStatus = "PENDING" },
                         new { ApplicantID = "546885", ScholarshipName = "MH UG SCHOLARSHIP", Status = "In Progress", VerificationStatus = "VERIFIED" },
                         new { ApplicantID = "151846", ScholarshipName = "PHD SCHOLARSHIP", Status = "Incomplete", VerificationStatus = "VERIFIED" }
                     };
 
-                    // Loop through each applicant and generate a table row
-                    foreach (var applicant in applicants)
-                    {
-                %>
-                    <tr>
-                        <td><%= applicant.ApplicantID %></td>
-                        <td><%= applicant.ScholarshipName %></td>
-                        <td><%= applicant.Status %></td>
-                        <td><%= applicant.VerificationStatus %></td>
-                        <td><asp:button runat="server" type="button" ID="ViewButton"  onclick="ViewButton_Click" Text="View"></asp:button></td>
-                    </tr>
-                <% } %>
-            </tbody>
-        </table>
+                // Loop through each applicant and generate a table row
+                foreach (var applicant in applicants)
+                {
+            %>
+            <tr>
+                <td><%= applicant.ApplicantID %></td>
+                <td><%= applicant.ScholarshipName %></td>
+                <td><%= applicant.Status %></td>
+                <td><%= applicant.VerificationStatus %></td>
+                <td>
+                    <asp:Button runat="server" type="button" ID="ViewButton" OnClick="ViewButton_Click" Text="View"></asp:Button></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
 
-     <script>
+    <script>
         // JavaScript for Toggle Filter Modal
         function toggleFilters() {
             const modal = document.getElementById("filter-modal");
