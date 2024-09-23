@@ -103,15 +103,15 @@
         </div>
         <form id="form1" runat="server">
             <div class="input-group">
-                <input type="text" id="userid" placeholder="USER ID" required="required"/>
+                <asp:TextBox runat="server" type="text" id="userid" placeholder="USER ID" required="required"/>
                 <span class="error-icon"></span>
             </div>
             <div class="input-group">
-                <input type="password" id="password" placeholder="Password" required="required"/>
+                <asp:Textbox runat="server" type="password" id="password" placeholder="Password" required="required"/>
                 <span class="error-icon"></span>
             </div>
             <a href="ForgotPassword.aspx" class="forgot-password">Forgot Password?</a>
-            <asp:Button ID="Button1" type="submit" class="login-btn" runat="server" OnClick="Button1_Click" Text="LOGIN" />
+            <asp:Button ID="Button1" type="submit" class="login-btn" runat="server" OnClick="LoginButton_Click" Text="LOGIN" />
         </form>
     </div>
 

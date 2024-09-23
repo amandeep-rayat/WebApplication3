@@ -11,11 +11,16 @@ namespace WebApplication3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["username"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
 
         }
 
         protected void ConfirmLogOut_Click(object sender, EventArgs e)
         {
+            Session.Abandon();
             Response.Redirect("Login.aspx");
         }
     }
