@@ -10,68 +10,91 @@ namespace WebApplication3
 {
     public partial class Verification : System.Web.UI.Page
     {
+        private string connectionString;
+
+        // This method is triggered when the page is loaded
+        protected void btnUploadImage_Click(object sender, EventArgs e)
+        {
+            // Get the file upload control
+            FileUpload fileUpload = (System.Web.UI.WebControls.FileUpload)((Button)sender).Parent.FindControl("fileUploadImage");
+
+            if (fileUpload.HasFile)
+            {
+                byte[] fileData = fileUpload.FileBytes;
+                string fileName = fileUpload.FileName;
+
+                // Assuming you have ApplicationID as the CommandArgument
+                string applicationID = ((Button)sender).CommandArgument;
+
+                //using (SqlConnection conn = new SqlConnection(connectionString))
+                //{
+                //    string query = "UPDATE ApplicantDocumentsDetails SET DocumentData = @DocumentData, DocumentName = @DocumentName WHERE ApplicationID = @ApplicationID";
+                //    using (SqlCommand cmd = new SqlCommand(query, conn))
+                //    {
+                //        cmd.Parameters.AddWithValue("@DocumentData", fileData);
+                //        cmd.Parameters.AddWithValue("@DocumentName", fileName);
+                //        cmd.Parameters.AddWithValue("@ApplicationID", applicationID);
+
+                //        conn.Open();
+                //        cmd.ExecuteNonQuery();
+                //    }
+                //}
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-        protected void btnSubmit_Click(object sender, EventArgs e)
-        {
-            string applicantName = txtApplicantName.Text.Trim();
-            string scholarshipName = txtScholarshipName.Text.Trim();
-            string year = txtYear.Text.Trim();
-            if(string.IsNullOrEmpty(applicantName) || string.IsNullOrEmpty(scholarshipName) || string.IsNullOrEmpty(year))
+            if (!IsPostBack)
             {
-                //  Show error messages if any field is empty
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Please fill all the required fields.');",true);
-                GridView2.Visible = false;
-                return;
+                // Get the ApplicantID from the query string (e.g., ?ApplicantID=123)
+                string applicantId = Request.QueryString["ApplicantID"];
+
+                if (!string.IsNullOrEmpty(applicantId))
+                {
+                    // Load the applicant details and their document information
+                    LoadApplicantDetails(applicantId);
+                    LoadApplicantDocuments(applicantId);
+                }
             }
-            // Bind data to GridView
-            BindGridView(applicantName, scholarshipName, year);
         }
 
-        private void BindGridView(string applicantName, string scholarshipName, string year)
+        // Method to load applicant details
+        private void LoadApplicantDetails(string applicantId)
         {
-            // Create a dummy DataTable for demonstration
+            // Example hardcoded data (replace with database query)
+            var applicantDetails = new
+            {
+                ApplicantName = "John Doe",
+                ScholarshipName = "UG Scholarship",
+                Year = "2023"
+            };
+
+            // Populate the TextBoxes with applicant details
+            txtApplicantName.Text = applicantDetails.ApplicantName;
+            txtScholarshipName.Text = applicantDetails.ScholarshipName;
+            txtYear.Text = applicantDetails.Year;
+        }
+
+        // Method to load applicant documents
+        private void LoadApplicantDocuments(string applicantId)
+        {
+            // Create a DataTable (replace this with actual database query results)
             DataTable dt = new DataTable();
-            dt.Columns.Add("SNo", typeof(int));
-            dt.Columns.Add("DocumentName", typeof(string));
-            dt.Columns.Add("SubmissionStatus", typeof(string));
-            dt.Columns.Add("Status", typeof(string));
-            dt.Columns.Add("Comment", typeof(string));
+            dt.Columns.Add("SNo");
+            dt.Columns.Add("DocumentName");
+            dt.Columns.Add("SubmissionStatus");
+            dt.Columns.Add("Status");
+            dt.Columns.Add("Comment");
+            dt.Columns.Add("ApplicationID");
 
-            // Add dummy data
-            dt.Rows.Add(1, "Aadhar Name", "Submitted", "Verified", "Eligible");
-            dt.Rows.Add(2, "Driving License", "Not Submitted", "Pending", "");
-            dt.Rows.Add(3, "UG Degree", "Submitted", "Pending", "Not Eligible");
-            dt.Rows.Add(4, "PG Degree", "Submitted", "Pending", "");
-            dt.Rows.Add(5, "High School Marksheet", "Not Submitted", "Pending", "");
-            dt.Rows.Add(6, "Secondary School Marksheet", "Submitted", "In Process", "Resubmit the Document");
-            dt.Rows.Add(7, "Domicile", "Submitted", "In Process", "");
-            dt.Rows.Add(8, "DOB", "Submitted", "In Process", "");
+            // Example rows (replace with actual database data)
+            dt.Rows.Add(1, "Passport", "Submitted", "Verified", "All good", "1");
+            dt.Rows.Add(2, "Driving License", "Pending", "Pending", "Awaiting submission", "2");
 
-            // Bind data to GridView
+            // Bind the GridView to display document information
             GridView2.DataSource = dt;
             GridView2.DataBind();
-            GridView2.Visible = true; // Show GridView
-        }
-
-        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (e.CommandName == "View")
-            {
-                // Retrieve the row index stored in the CommandArgument
-                int rowIndex = Convert.ToInt32(e.CommandArgument);
-
-                // Find the row in the GridView
-                GridViewRow row = GridView2.Rows[rowIndex];
-
-                // Retrieve the document details based on the row index or SNo
-                string documentName = row.Cells[1].Text;
-
-                // For demonstration purposes, you can show an alert or perform other actions
-                ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('Viewing document: " + documentName + "');", true);
-            }
+            GridView2.Visible = true; // Make GridView visible once data is loaded
         }
 
     }

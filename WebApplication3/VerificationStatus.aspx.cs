@@ -21,18 +21,18 @@ namespace WebApplication3
 
         protected void ViewButton_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Verification.aspx");
+            Response.Redirect("Verification.aspx?ApplicantID=123");
         }
 
         // Simulate fetching data from a database
         private List<Applicant> GetApplicants()
         {
             return new List<Applicant>
-            {
-                new Applicant { Id = "1276537", ScholarshipName = "STATE BOARD TOPPER SCHOLARSHIP", Status = "IN PROCESS", VerificationStatus = "PENDING" },
-                new Applicant { Id = "1276539", ScholarshipName = "SINGLE GIRL CHILD", Status = "COMPLETED", VerificationStatus = "VERIFIED" },
-                new Applicant { Id = "1245368", ScholarshipName = "UG MP STATE BOARD", Status = "RESUBMISSION REQUEST", VerificationStatus = "PENDING" }
-            };
+                {
+                    new Applicant { Id = "1276537", ScholarshipName = "STATE BOARD TOPPER SCHOLARSHIP", Status = "IN PROCESS", VerificationStatus = "PENDING" },
+                    new Applicant { Id = "1276539", ScholarshipName = "SINGLE GIRL CHILD", Status = "COMPLETED", VerificationStatus = "VERIFIED" },
+                    new Applicant { Id = "1245368", ScholarshipName = "UG MP STATE BOARD", Status = "RESUBMISSION REQUEST", VerificationStatus = "PENDING" }
+                };
         }
     }
 
