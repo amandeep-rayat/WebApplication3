@@ -12,12 +12,12 @@
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/photos/photo.png" rel="shortcut icon" type="image/x-icon" />
 
 </head>
 <body>
-    <form runat="server" class="full">
+    <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -37,17 +37,13 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <nav class="navbar navbar-expand-sm nav">
-            <button type="button" class="sidebar-toggler border-0 mx-xl-4" title="Toggle sidebar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <nav class="navbar navbar-expand-sm nav" style="font-size:20px">
             <div class="container d-flex justify-content-between">
-                <!--<a class="navbar-brand" runat="server" href="~/"></a>!-->
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-around" style="margin : 0 25%">
                     <ul class="navbar-nav flex-grow-1 justify-content-around">
                         <li class="nav-item"><a class="nav-link text-white" runat="server" href="~/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link text-white" runat="server" href="~/AddVerifier">Add Verifier</a></li>
                         <li class="nav-item"><a class="nav-link text-white" runat="server" href="~/BusinessRules">Business Rules</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" runat="server" href="~/AddVerifier">Add Verifier</a></li>
                         <li class="nav-item "><a class="nav-link text-white" runat="server" href="~/Contact">Help/Support</a></li>
                         <li class="nav-item "><a class="nav-link text-white" runat="server" href="~/About">About</a></li>
                     </ul>
@@ -63,22 +59,11 @@
             <button id="cancelLogout" type="button" class="btn btn-secondary">No</button>
         </div>
     </div>
-    <div id="sidebar" class="sidebar">
-        <img src="photos/user.jpg" class="w-50 align-self-center m-lg-5" style="border-radius:50%;"/>
-        <button type="button" id="closeSidebar" class="close-btn">×</button>
-        <ul class="sidebar-nav">
-            <li><a href="~/" runat="server">INBOX</a></li>
-            <li><a href="~/NewApplicant" runat="server">NEW APPLICATON</a></li>
-            <li><a href="~/ExistingApplicant" runat="server">EXISTING APPLICATION</a></li>
-            <li><a href="~/VerificationStatus" runat="server">VERIFICATION STATUS</a></li>
-            <li><a href="/ViewStats" runat="server">VIEW STATS</a></li>
-        </ul>
-    </div>
     <div class="container body-content">
         <asp:ContentPlaceHolder ID="MainContent" runat="server">
         </asp:ContentPlaceHolder>
+        <footer class="text-center foot">
         <hr />
-        <footer class="text-center">
             <p>&copy; <%: DateTime.Now.Year %> - Copyright Reserved : Team Kalki</p>
         </footer>
     </div>
@@ -95,37 +80,7 @@
         #log-out {
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Shadow for logout button */
         }
-        .sidebar {
-            height: 100%;
-            width: 250px;
-            position: fixed;
-            top: 0;
-            left: -250px;
-            background-color: #004080;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Shadow for sidebar */
-        }
-        .sidebar li{
-            list-style-type:none;
-        }
-        .sidebar a {
-            padding: 10px 15px;
-            text-decoration: none;
-            font-size: 18px;
-            color: white;
-            display: block;
-            transition: 0.3s;
-        }
-
-        .sidebar a:hover {
-            color: #f1f1f1;
-        }
-
-        .sidebar.active {
-            left: 0;
-        }
+        
         .active{
             border-bottom : 2px solid white;
         }
@@ -171,18 +126,12 @@
             font-size: 30px;
             cursor: pointer;
         }
+/*        footer{
+            position:absolute;
+            bottom:0;
+        }*/
     </style>
     <script>
-        document.querySelector('.sidebar-toggler').addEventListener('click', function () {
-            document.getElementById('sidebar').classList.toggle('active');
-        });
-        document.getElementById('closeSidebar').addEventListener('click', function () {
-            document.getElementById('sidebar').classList.remove('active');
-        });
-        //document.getElementById('log-out').addEventListener('click', function () {
-        //    confirm('Are you sure to exit')
-        //});
-        // Add this JavaScript inside the <script> tag
         document.getElementById('log-out').addEventListener('click', function () {
             document.getElementById('logoutPopup').classList.add('active');
         });
@@ -196,7 +145,6 @@
         });
 
         document.getElementById('confirmLogout').addEventListener('click', function () {
-            // Add your logout logic here
             alert('Logged out');
             document.getElementById('logoutPopup').classList.remove('active');
         });
