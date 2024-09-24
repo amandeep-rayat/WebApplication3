@@ -117,7 +117,11 @@
                 row.style.display = matchesSearch ? "" : "none";
             });
         }
-
+        nav_options = document.querySelectorAll('.nav-item');
+        for (var i = 0; i < nav_options.length; i++) {
+            nav_options[i].className = nav_options[i].className.replace(" active", "");
+        }
+        nav_options[1].className = nav_options[1].className + " active";
         // Add event listener for real-time filtering as the user types
         document.getElementById("search-bar").addEventListener("input", applyFiltersAndSearch);
     </script>

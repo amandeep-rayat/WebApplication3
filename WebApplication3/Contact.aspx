@@ -20,7 +20,7 @@
     for (var i = 0; i < nav_options.length; i++) {
             nav_options[i].className = nav_options[i].className.replace(" active", "");
     }
-    nav_options[1].className = nav_options[1].className + " active";
+    nav_options[3].className = nav_options[3].className + " active";
         </script>
     </main>
 </asp:Content>

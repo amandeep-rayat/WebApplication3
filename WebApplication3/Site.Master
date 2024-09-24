@@ -13,7 +13,7 @@
     </asp:PlaceHolder>
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="~/photos/photo.png" rel="shortcut icon" type="image/x-icon" />
 
 </head>
 <body>
@@ -37,18 +37,19 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <nav class="navbar navbar-expand-sm">
-            <button type="button" class=".sidebar-nav sidebar-toggler border-0 bg-white" title="Toggle sidebar"
-                style="margin-left:25px">
+        <nav class="navbar navbar-expand-sm nav">
+            <button type="button" class="sidebar-toggler border-0 mx-xl-4" title="Toggle sidebar">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="container d-flex justify-content-between">
                 <!--<a class="navbar-brand" runat="server" href="~/"></a>!-->
                 <div class="collapse navbar-collapse d-sm-inline-flex justify-content-around" style="margin : 0 25%">
                     <ul class="navbar-nav flex-grow-1 justify-content-around">
-                        <li class="nav-item"><a class="nav-link text-black" runat="server" href="~/">Home</a></li>
-                        <li class="nav-item "><a class="nav-link text-black" runat="server" href="~/Contact">Help/Support</a></li>
-                        <li class="nav-item "><a class="nav-link text-black" runat="server" href="~/About">About</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" runat="server" href="~/">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" runat="server" href="~/AddVerifier">Add Verifier</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" runat="server" href="~/BusinessRules">Business Rules</a></li>
+                        <li class="nav-item "><a class="nav-link text-white" runat="server" href="~/Contact">Help/Support</a></li>
+                        <li class="nav-item "><a class="nav-link text-white" runat="server" href="~/About">About</a></li>
                     </ul>
                 </div>
             </div>
@@ -62,7 +63,7 @@
             <button id="cancelLogout" type="button" class="btn btn-secondary">No</button>
         </div>
     </div>
-    <div id="sidebar" class="sidebar bg-white">
+    <div id="sidebar" class="sidebar">
         <img src="photos/user.jpg" class="w-50 align-self-center m-lg-5" style="border-radius:50%;"/>
         <button type="button" id="closeSidebar" class="close-btn">×</button>
         <ul class="sidebar-nav">
@@ -86,16 +87,25 @@
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>
     <style>
+        .nav {
+            background-color: #004080;
+            color: white;
+        }
+
+        #log-out {
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Shadow for logout button */
+        }
         .sidebar {
             height: 100%;
             width: 250px;
             position: fixed;
             top: 0;
             left: -250px;
-            background-color: #111;
+            background-color: #004080;
             overflow-x: hidden;
             transition: 0.5s;
             padding-top: 60px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Shadow for sidebar */
         }
         .sidebar li{
             list-style-type:none;
@@ -104,7 +114,7 @@
             padding: 10px 15px;
             text-decoration: none;
             font-size: 18px;
-            color: #818181;
+            color: white;
             display: block;
             transition: 0.3s;
         }
@@ -117,7 +127,7 @@
             left: 0;
         }
         .active{
-            border-bottom : 2px solid black;
+            border-bottom : 2px solid white;
         }
         .close-btn {
             position: absolute;
@@ -126,7 +136,7 @@
             font-size: 36px;
             background: none;
             border: none;
-            color: #818181;
+            color: white;
             cursor: pointer;
         }
 
@@ -160,7 +170,7 @@
             right: 20px;
             font-size: 30px;
             cursor: pointer;
-}
+        }
     </style>
     <script>
         document.querySelector('.sidebar-toggler').addEventListener('click', function () {

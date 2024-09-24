@@ -124,6 +124,11 @@
 
             // Perform any further actions (e.g., form submission via AJAX or server-side processing)
         }
+        nav_options = document.querySelectorAll('.nav-item');
+        for (var i = 0; i < nav_options.length; i++) {
+            nav_options[i].className = nav_options[i].className.replace(" active", "");
+        }
+        nav_options[2].className = nav_options[2].className + " active";
     </script>
 
 </asp:Content>
