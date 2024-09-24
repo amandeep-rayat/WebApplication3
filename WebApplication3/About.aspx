@@ -23,7 +23,7 @@ The platform is designed to enhance the user experience for both students and ad
             for (var i = 0; i < nav_options.length; i++) {
                 nav_options[i].className = nav_options[i].className.replace(" active", "");
             }
-            nav_options[4].className = nav_options[4].className + " active";
+            nav_options[3].className = nav_options[3].className + " active";
         </script>
     </main>
 </asp:Content>

@@ -13,45 +13,38 @@
                 padding: 20px;
             }
             .button-grid {
+                margin-top:10vh;
                 display: grid;
                 grid-template-columns: 1fr 1fr;
-                grid-gap: 20px;
+                grid-gap: 60px;
             }
             .card-button {
+                font-size:25px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 border: 1px solid #000;
-                height: 150px;
+                height: 30vh;
                 cursor: pointer;
                 text-align: center;
+                max-width:none;
             }
             .mt-3 {
                 text-align: right;
             }
-    
+            .btn:hover {
+                background-color:#004080;
+            }
         </style>
         <div class="button-grid">
             <!-- Card Buttons -->
-            <div class="card-button">
-                <asp:Button ID="NewAppButton" runat="server" CssClass="btn btn-outline-dark" Text="New Application" OnClick="NewAppButton_Click" />
-            </div>
-            <div class="card-button">
-                <asp:Button ID="VerifyStatusButton" runat="server" CssClass="btn btn-outline-dark" Text="Verification Status" OnClick="VerifyStatusButton_Click1" />
-            </div>
-            <div class="card-button">
-                <asp:Button ID="ExistingAppButton" runat="server" CssClass="btn btn-outline-dark" Text="Existing Application" OnClick="ExistingAppButton_Click" />
-            </div>
-            <div class="card-button">
-                <asp:Button ID="ViewStatsButton" runat="server" CssClass="btn btn-outline-dark px-5" Text="View Stats" OnClick="ViewStatsButton_Click" />
-            </div>
+                <asp:Button ID="NewAppButton" runat="server" CssClass="btn btn-outline-dark card-button" Text="New Application" OnClick="NewAppButton_Click" />
+                <asp:Button ID="VerifyStatusButton" runat="server" CssClass="btn btn-outline-dark card-button" Text="Verification Status" OnClick="VerifyStatusButton_Click1" />
+                <asp:Button ID="ExistingAppButton" runat="server" CssClass="btn btn-outline-dark card-button" Text="Existing Application" OnClick="ExistingAppButton_Click" />
+                <asp:Button ID="ViewStatsButton" runat="server" CssClass="btn btn-outline-dark px-5 card-button" Text="View Stats" OnClick="ViewStatsButton_Click" />
         </div>
 
         <!-- Additional Buttons -->
-        <div class="mt-3">
-            <asp:Button ID="BusinessRulesButton" runat="server" CssClass="btn btn-outline-dark" Text="BUSINESS RULES" OnClick="BusinessRulesButton_Click" />
-            <asp:Button ID="AddVerifierButton" runat="server" CssClass="btn btn-outline-dark" Text="ADD VERIFIER" OnClick="AddVerifierButton_Click" />
-        </div>
 
         <script>
             nav_options = document.querySelectorAll('.nav-item');
