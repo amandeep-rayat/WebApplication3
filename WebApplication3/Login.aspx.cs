@@ -33,20 +33,23 @@ namespace WebApplication3
             // Replace this with your actual authentication logic
             bool isAuthenticated = AuthenticateUser(userId, password);
 
-            if (userId == "Admin" && password == "Admin@123")
+            if (userId == "Admin@xyz.org" && password == "Admin@123")
             {
                 Response.Redirect("Default.aspx");
+            }
+            else if(userId == "Verifier@xyz.org" && password == "Verifier@123")
+            {
+                Response.Redirect("Verifier.aspx");
             }
             else if (isAuthenticated)
             {
                 // If authentication is successful, redirect to the Change Password page
                 Response.Redirect("ChangePassword.aspx");
             }
-
             else
             {
                 // Display error message on failed login
-                Response.Write("<script>alert('Invalid User ID or Password" + userId+"n"+password+". Please try again.');</script>");
+                Response.Write("<script>alert('Use email and strong password.');</script>");
             }
         }
 

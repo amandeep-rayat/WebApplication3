@@ -1,11 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Verification.aspx.cs" Inherits="WebApplication3.Verification" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-        }
-
         .bg-white {
             background-color: #ffffff;
             border-radius: 8px;
@@ -40,10 +35,6 @@
             margin-bottom: 1rem;
         }
 
-        .mt-4 {
-            margin-top: 1rem;
-        }
-
         .w-full {
             width: 100%;
         }
@@ -52,26 +43,8 @@
             border-collapse: collapse;
         }
 
-        .bg-blue-500 {
-            background-color: #004aad;
-        }
-
         .text-white {
             color: white;
-        }
-
-        .px-4 {
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-
-        .py-2 {
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-        }
-
-        .mt-2 {
-            margin-top: 0.5rem;
         }
 
         /* GridView Styling */
@@ -92,28 +65,6 @@
         .border {
             border: 1px solid #004aad;
         }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .border-collapse {
-            border-collapse: collapse;
-        }
-
-        /* Button Styles */
-        button {
-            background-color: #004aad;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-        }
-
-            button:hover {
-                background-color: #003380;
-            }
 
         /* TextBox Styling */
         input[type="text"] {

@@ -6,13 +6,6 @@
 <head runat="server">
     <title>Login Page</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-
         body {
             display: flex;
             justify-content: center;
@@ -92,6 +85,9 @@
             .login-btn:hover {
                 background-color: #002244; /* Darker Blue */
             }
+        .text-danger {
+    color:red;
+}
     </style>
 
 </head>
@@ -103,11 +99,13 @@
         </div>
         <form id="form1" runat="server">
             <div class="input-group">
-                <asp:TextBox runat="server" type="text" id="userid" placeholder="USER ID" required="required"/>
+                <asp:TextBox runat="server" TextMode="SingleLine" id="userid" placeholder="USER ID" required="required"/>
+                <asp:RegularExpressionValidator runat="server" ID="emailValidate" ErrorMessage="Enter a Valid Email" CssClass="text-danger" ControlToValidate="userid" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 <span class="error-icon"></span>
             </div>
             <div class="input-group">
-                <asp:Textbox runat="server" type="password" id="password" placeholder="Password" required="required"/>
+                <asp:Textbox runat="server" TextMode="Password" id="password" placeholder="Password" required="required"/>
+                <asp:RegularExpressionValidator runat="server" ID="passwordValidate" ErrorMessage="Enter a Strong Password" CssClass="text-danger" ControlToValidate="password" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"></asp:RegularExpressionValidator>
                 <span class="error-icon"></span>
             </div>
             <a href="ForgotPassword.aspx" class="forgot-password">Forgot Password?</a>

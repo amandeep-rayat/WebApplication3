@@ -33,6 +33,15 @@ namespace WebApplication3
         protected global::System.Web.UI.WebControls.TextBox userid;
 
         /// <summary>
+        /// emailValidate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator emailValidate;
+
+        /// <summary>
         /// password control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace WebApplication3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox password;
+
+        /// <summary>
+        /// passwordValidate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator passwordValidate;
 
         /// <summary>
         /// Button1 control.

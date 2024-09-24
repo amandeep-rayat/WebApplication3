@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -15,7 +18,11 @@ namespace WebApplication3
         }
         protected void Send_click(object sender, EventArgs e)
         {
-            
+            if(regexEmailValid.Text.IsNullOrWhiteSpace() && emailAdd.Text == "")
+            {
+                Response.Write("<script>alert('Enter both email and query');</script>");
+                return;
+            }
         }
     }
 }

@@ -12,24 +12,33 @@
         .search-container {
             display: flex;
             align-items: center;
+            position: relative;
         }
 
         .search-bar {
-            width: 400px;
-            padding: 10px;
-            border: 2px solid #004080;
-            border-radius: 30px 0 0 30px;
-            outline: none;
-            font-size: 16px;
+             width: 550px; /* Increased width */
+padding: 10px 45px 10px 15px; /* Leave padding for the search icon on the right */
+border: 2px solid #004080;
+border-radius: 30px;
+outline: none;
+font-size: 16px;
         }
+
+        .search-icon {
+    position: absolute;
+    right: 15px; /* Place the icon to the right inside the search bar */
+    font-size: 20px;
+    color: #004080;
+    pointer-events: none; /* Ensure the icon does not interfere with input */
+}
 
         .search-button {
             background-color: #004080;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 0 30px 30px 0;
-            cursor: pointer;
+color: white;
+padding: 10px;
+border: none;
+border-radius: 0 30px 30px 0;
+cursor: pointer;
         }
 
             .search-button:hover {
@@ -99,13 +108,13 @@
                 background-color: #004080;
                 color: white;
                 padding: 15px;
-                text-align: left;
+                text-align: center;
             }
 
             .applicant-table td {
                 padding: 15px;
                 border: 1px solid #004080;
-                text-align: left;
+                text-align: center;
             }
 
             .applicant-table tr:nth-child(even) {
@@ -126,7 +135,7 @@
     <div class="search-section">
         <div class="search-container">
             <input type="text" id="search-bar" class="search-bar" placeholder="Search Applicant / Scholarship / Status" />
-            <button id="search-button" class="search-button" type="button">🔍</button>
+            <span class="search-icon">&#128269;</span> <!-- Unicode for search icon -->
         </div>
         <button id="filter-button" class="filter-button" type="button">ADVANCED FILTER</button>
     </div>

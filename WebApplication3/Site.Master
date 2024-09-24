@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> - Team KALKI</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -37,7 +37,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <nav class="navbar navbar-expand-sm nav" style="font-size: 20px">
+        <nav class="navbar navbar-expand-sm nav">
             <button type="button" class="sidebar-toggler border-0 mx-xl-4" title="Toggle sidebar">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -88,6 +88,7 @@
         .nav {
             background-color: #004080;
             color: white;
+            font-size: 20px;
         }
 
         #log-out {

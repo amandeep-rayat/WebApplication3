@@ -1,20 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VerificationStatus.aspx.cs" Inherits="WebApplication3.VerificationStatus" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
-        /* General Page Styles */
-
-        .logout {
-            background-color: #004080;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-
-            .logout:hover {
-                background-color: #003366;
-            }
-
         /* Centered Search Section */
         .search-section {
             display: flex;
@@ -26,29 +12,25 @@
         .search-container {
             display: flex;
             align-items: center;
+            position: relative;
         }
 
         .search-bar {
-            width: 400px;
-            padding: 10px;
-            border: 2px solid #004080; /* Blue border */
-            border-radius: 30px 0 0 30px; /* Rounded corners */
+            width: 550px; /* Increased width */
+            padding: 10px 45px 10px 15px; /* Leave padding for the search icon on the right */
+            border: 2px solid #004080;
+            border-radius: 30px;
             outline: none;
             font-size: 16px;
         }
 
-        .search-button {
-            background-color: #004080; /* Blue background for search button */
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 0 30px 30px 0;
-            cursor: pointer;
+        .search-icon {
+            position: absolute;
+            right: 15px; /* Place the icon to the right inside the search bar */
+            font-size: 20px;
+            color: #004080;
+            pointer-events: none; /* Ensure the icon does not interfere with input */
         }
-
-            .search-button:hover {
-                background-color: #003366; /* Darker blue on hover */
-            }
 
         .filter-button {
             background-color: #004080; /* Blue background for filter button */
@@ -113,13 +95,13 @@
                 background-color: #004080; /* Blue background for table headers */
                 color: white;
                 padding: 15px;
-                text-align: left;
+                text-align: center;
             }
 
             .applicant-table td {
                 padding: 15px;
                 border: 1px solid #004080; /* Blue border for table cells */
-                text-align: left;
+                text-align: center;
             }
 
             .applicant-table tr:nth-child(even) {
@@ -138,14 +120,13 @@
     </style>
 
     <!-- Centered Search Section with Filter Button -->
-    <div class="search-section">
+        <div class="search-section">
         <div class="search-container">
-            <input type="text" id="search-bar" class="search-bar" placeholder="Search Applicant / Scholarship / Status" />
-            <button type="button" id="search-button" class="search-button">🔍</button>
+            <input type="text" id="search-bar" class="search-bar" placeholder="Search Applicant / Scholarship / Status    " />
+            <span class="search-icon">&#128269;</span> <!-- Unicode for search icon -->
         </div>
-        <button type="button" id="filter-button" class="filter-button">FILTER</button>
+        <button id="filter-button" class="filter-button" type="button">ADVANCED FILTER</button>
     </div>
-
     <!-- Filter Modal -->
     <div id="filter-modal" class="modal">
         <div class="modal-content">

@@ -21,7 +21,6 @@ namespace WebApplication3
             string confirmPassword = txtConfirmPassword.Text;
 
 
-            Response.Write("<script>alert('Are You Sure!');</script>");
             // Validate the password based on the criteria
             if (ValidatePassword(newPassword))
             {
@@ -31,6 +30,7 @@ namespace WebApplication3
                 {
                     // Simulate changing the password in the system (e.g., updating the database)
                     // Show a success message after the password is successfully changed.
+                    Response.Write("<script>alert('Are You Sure!');</script>");
                     Response.Write("<script>alert('Password changed successfully!');</script>");
                     Response.Redirect("Login.aspx");
                 }
@@ -67,7 +67,7 @@ namespace WebApplication3
             if (!ValidatePassword(newPassword))
             {
                 // You can implement real-time feedback here for invalid password format
-                Response.Write("<script>alert('Are You Sure!');</script>");
+               // Response.Write("<script>alert('Are You Sure!');</script>");
                 Response.Write("<script>alert('Password does not meet the criteria.');</script>");
             }
         }

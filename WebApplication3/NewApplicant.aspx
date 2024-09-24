@@ -9,9 +9,9 @@
             cursor: pointer;
         }
 
-            .logout:hover {
-                background-color: #003366;
-            }
+        .logout:hover {
+            background-color: #003366;
+        }
 
         /* Centered Search Section */
         .search-section {
@@ -24,13 +24,23 @@
         .search-container {
             display: flex;
             align-items: center;
+            position: relative; /* Make the container relative to position the icon inside it */
+        }
+
+        /* Search Icon */
+        .search-icon {
+            position: absolute;
+            right: 15px; /* Place the icon to the right inside the search bar */
+            font-size: 20px;
+            color: #004080;
+            pointer-events: none; /* Ensure the icon does not interfere with input */
         }
 
         .search-bar {
-            width: 400px;
-            padding: 10px;
+            width: 550px; /* Increased width */
+            padding: 10px 45px 10px 15px; /* Leave padding for the search icon on the right */
             border: 2px solid #004080;
-            border-radius: 30px 0 0 30px;
+            border-radius: 30px;
             outline: none;
             font-size: 16px;
         }
@@ -38,15 +48,15 @@
         .search-button {
             background-color: #004080;
             color: white;
-            padding: 10px 20px;
+            padding: 10px;
             border: none;
             border-radius: 0 30px 30px 0;
             cursor: pointer;
         }
 
-            .search-button:hover {
-                background-color: #003366;
-            }
+        .search-button:hover {
+            background-color: #003366;
+        }
 
         .filter-button {
             background-color: #004080;
@@ -58,9 +68,9 @@
             cursor: pointer;
         }
 
-            .filter-button:hover {
-                background-color: #003366;
-            }
+        .filter-button:hover {
+            background-color: #003366;
+        }
 
         /* Filter Modal Styles */
         .modal {
@@ -72,7 +82,7 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgba(0,0,0,0.4);
+            background-color: rgba(0, 0, 0, 0.4);
             padding-top: 60px;
         }
 
@@ -93,12 +103,12 @@
             font-weight: bold;
         }
 
-            .close:hover,
-            .close:focus {
-                color: black;
-                text-decoration: none;
-                cursor: pointer;
-            }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
         /* Table Styling */
         .applicant-table {
@@ -107,26 +117,26 @@
             border-collapse: collapse;
         }
 
-            .applicant-table th {
-                background-color: #004080;
-                color: white;
-                padding: 15px;
-                text-align: left;
-            }
+        .applicant-table th {
+            background-color: #004080;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
 
-            .applicant-table td {
-                padding: 15px;
-                border: 1px solid #004080;
-                text-align: left;
-            }
+        .applicant-table td {
+            padding: 15px;
+            border: 1px solid #004080;
+            text-align: center;
+        }
 
-            .applicant-table tr:nth-child(even) {
-                background-color: #f2f2f2;
-            }
+        .applicant-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
 
-            .applicant-table tr:hover {
-                background-color: #e6f7ff;
-            }
+        .applicant-table tr:hover {
+            background-color: #e6f7ff;
+        }
 
         .dropdown-icon {
             font-size: 12px;
@@ -137,10 +147,10 @@
     <!--Centered Search Section with Filter Button -->
     <div class="search-section">
         <div class="search-container">
-            <input type="text" id="search-bar" class="search-bar" placeholder="Search Applicant / Scholarship / Status" />
-            <button id="search-button" class="search-button" type="button">🔍</button>
+            <input type="text" id="search-bar" class="search-bar" placeholder="Search Applicant / Scholarship / Status    " />
+            <span class="search-icon">&#128269;</span> <!-- Unicode for search icon -->
         </div>
-        <button id="filter-button" class="filter-button" type="button">FILTER</button>
+        <button id="filter-button" class="filter-button" type="button"> ADVANCED FILTER</button>
     </div>
 
     <!-- Filter Modal -->
@@ -174,7 +184,6 @@
     </div>
 
     <!-- Applicant Table -->
-    <!-- Applicant Table -->
     <table class="applicant-table">
         <thead>
             <tr>
@@ -190,50 +199,25 @@
                 <td>123456</td>
                 <td>UG SCHOLARSHIP</td>
                 <td>Completed</td>
-                <td>
-                    <input type="checkbox" name="select-applicant"></td>
-                <td>
-                    <select name="assigned-to">
-                        <option value="">Select Assignee</option>
-                        <option value="name1">Name1</option>
-                        <option value="name2">Name2</option>
-                        <option value="name3">Name3</option>
-                    </select>
-                </td>
+                <td><input type="checkbox" name="select-applicant"></td>
+                <td><input type="text" name="assigned-to-name1" placeholder="    Assignee" width="50px" /></td>
             </tr>
             <tr>
                 <td>546885</td>
-                <td>PG SCHOLARSHIP </td>
+                <td>PG SCHOLARSHIP</td>
                 <td>In Progress</td>
-                <td>
-                    <input type="checkbox" name="select-applicant"></td>
-                <td>
-                    <select name="assigned-to">
-                        <option value="">Select Assignee</option>
-                        <option value="name1">Name1</option>
-                        <option value="name2">Name2</option>
-                        <option value="name3">Name3</option>
-                    </select>
-                </td>
+                <td><input type="checkbox" name="select-applicant"></td>
+               <td><input type="text" name="assigned-to-name1" placeholder="     Assignee" /></td>
             </tr>
             <tr>
                 <td>151846</td>
                 <td>PHD SCHOLARSHIP</td>
                 <td>Incomplete</td>
-                <td>
-                    <input type="checkbox" name="select-applicant"></td>
-                <td>
-                    <select name="assigned-to">
-                        <option value="">Select Assignee</option>
-                        <option value="name1">Name1</option>
-                        <option value="name2">Name2</option>
-                        <option value="name3">Name3</option>
-                    </select>
-                </td>
+                <td><input type="checkbox" name="select-applicant"></td>
+                <td><input type="text" name="assigned-to-name1" placeholder="    Assignee" /></td>
             </tr>
         </tbody>
     </table>
-
 
     <script>
         function toggleFilters() {
@@ -273,9 +257,9 @@
             document.getElementById("filter-button").addEventListener("click", toggleFilters);
             document.getElementById("close-modal").addEventListener("click", closeFilter);
             document.querySelector(".filter-options").addEventListener("change", applyFiltersAndSearch);
-            document.getElementById("search-button").addEventListener("click", applyFiltersAndSearch);
             document.getElementById("search-bar").addEventListener("input", applyFiltersAndSearch);
         });
     </script>
+
 
 </asp:Content>

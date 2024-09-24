@@ -122,6 +122,10 @@
             .show-password-container input {
                 margin-right: 5px;
             }
+
+        .text-danger {
+            color:red;
+        }
     </style>
 
 </head>
@@ -131,6 +135,7 @@
             <div class="change-password-box">
                 <h2>CHANGE PASSWORD</h2>
                 <asp:TextBox ID="txtNewPassword" runat="server" TextMode="Password" CssClass="input-group" placeholder="New Password" />
+                <asp:RegularExpressionValidator ID="NewPassValid" runat="server" CssClass="text-danger" ErrorMessage="Enter a Strong Password" ControlToValidate="txtNewPassword" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"></asp:RegularExpressionValidator>
                 <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" CssClass="input-group" placeholder="Confirm Password" />
                 
                 <!-- Checkbox to toggle password visibility -->

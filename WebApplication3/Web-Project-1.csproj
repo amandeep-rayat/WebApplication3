@@ -190,6 +190,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="VerifierSelectCandidate.aspx" />
+    <Content Include="ViewBusinessRules.aspx" />
     <Content Include="ViewStats.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -314,6 +315,13 @@
     </Compile>
     <Compile Include="VerifierSelectCandidate.aspx.designer.cs">
       <DependentUpon>VerifierSelectCandidate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewBusinessRules.aspx.cs">
+      <DependentUpon>ViewBusinessRules.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewBusinessRules.aspx.designer.cs">
+      <DependentUpon>ViewBusinessRules.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewStats.aspx.cs">
       <DependentUpon>ViewStats.aspx</DependentUpon>

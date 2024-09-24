@@ -1,18 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Verifier.aspx.cs" Inherits="WebApplication3.Verifier" %>
+﻿<%@ Page Title="Verifier Dashboard" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Verifier.aspx.cs" Inherits="WebApplication3.Verifier" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
-        .logout {
-            background-color: #004080;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-
-            .logout:hover {
-                background-color: #003366;
-            }
-
         /* Centered Search Section */
         .search-section {
             display: flex;
@@ -24,13 +12,23 @@
         .search-container {
             display: flex;
             align-items: center;
+            position: relative; /* Make the container relative to position the icon inside it */
+        }
+
+        /* Search Icon */
+        .search-icon {
+            position: absolute;
+            right: 15px; /* Place the icon to the right inside the search bar */
+            font-size: 20px;
+            color: #004080;
+            pointer-events: none; /* Ensure the icon does not interfere with input */
         }
 
         .search-bar {
-            width: 400px;
-            padding: 10px;
+            width: 550px; /* Increased width */
+            padding: 10px 45px 10px 15px; /* Leave padding for the search icon on the right */
             border: 2px solid #004080;
-            border-radius: 30px 0 0 30px;
+            border-radius: 30px;
             outline: none;
             font-size: 16px;
         }
@@ -137,9 +135,9 @@
     <div class="search-section">
         <div class="search-container">
             <input type="text" id="search-bar" class="search-bar" placeholder="Search Applicant / Scholarship / Status" />
-            <button id="search-button" class="search-button" type="button">🔍</button>
+            <span class="search-icon">&#128269;</span> <!-- Unicode for search icon -->
         </div>
-        <button id="filter-button" class="filter-button" type="button">FILTER</button>
+        <button id="filter-button" class="filter-button" type="button">ADVANCED FILTER</button>
     </div>
 
     <!-- Filter Modal -->
@@ -240,6 +238,12 @@
             document.getElementById("search-button").addEventListener("click", applyFiltersAndSearch);
             document.getElementById("search-bar").addEventListener("input", applyFiltersAndSearch);
         });
+
+        nav_options = document.querySelectorAll('.nav-item');
+        for (var i = 0; i < nav_options.length; i++) {
+            nav_options[i].className = nav_options[i].className.replace(" active", "");
+        }
+        nav_options[0].className = nav_options[0].className + " active";
     </script>
 
 
