@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VerifierSelectCandidate.aspx.cs" Inherits="WebApplication3.VerifierSelectCandidate" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="VerifierSelectCandidate.aspx.cs" Inherits="WebApplication3.VerifierSelectCandidate" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
         .search-section {

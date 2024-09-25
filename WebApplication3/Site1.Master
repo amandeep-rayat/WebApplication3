@@ -18,6 +18,14 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <style>
+        .mh-100 {
+    min-height:80vh;
+}
+
+.min-100{
+    min-height:80vh;
+}
+
         .nav {
             background-color: #004080;
             color: white;
@@ -63,8 +71,8 @@
     </style>
 
 </head>
-<body>
-    <form id="form1" runat="server">
+<body class="mh-100">
+    <form id="form1" runat="server" class="min-100">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -86,11 +94,11 @@
 
         <nav class="navbar navbar-expand-sm nav">
             <div class="container d-flex justify-content-between">
-                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-around" style="margin: 0 25%">
-                    <ul class="navbar-nav flex-grow-1 justify-content-around">
+                <div class="navbar-collapse d-sm-inline-flex justify-content-around" style="margin: 0 25%">
+                    <ul class="navbar-nav flex-grow-1 justify-content-around text-center">
                         <li class="nav-item"><a class="nav-link text-white" runat="server" href="~/Verifier">Home</a></li>
-                        <li class="nav-item "><a class="nav-link text-white" runat="server" href="~/Contact">Help/Support</a></li>
-                        <li class="nav-item "><a class="nav-link text-white" runat="server" href="~/About">About</a></li>
+                        <li class="nav-item "><a class="nav-link text-white" runat="server" href="~/Support">Help/Support</a></li>
+                        <li class="nav-item "><a class="nav-link text-white" runat="server" href="~/ViewAbout">About</a></li>
                         <li class="nav-item "><a class="nav-link text-white" runat="server" href="~/ViewBusinessRules">Business Rules</a></li>
                     </ul>
                 </div>
@@ -105,15 +113,15 @@
                 <button id="cancelLogout" type="button" class="btn btn-secondary">No</button>
             </div>
         </div>
-        <div class="container body-content">
+        <div class="container body-content  min-100 text-center"">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <hr />
-            <footer class="text-center">
-                <p>&copy; <%: DateTime.Now.Year %> - Copyright Reserved : Team Kalki</p>
-            </footer>
         </div>
     </form>
+            <footer class="text-center position-relative bottom-0 w-100">
+            <hr />
+                <p>&copy; <%: DateTime.Now.Year %> - Copyright Reserved : Team Kalki</p>
+            </footer>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>

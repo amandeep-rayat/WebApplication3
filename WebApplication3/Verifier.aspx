@@ -2,35 +2,66 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
         /* Centered Search Section */
-        .search-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+       .search-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    .search-container {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 370px;
+    }
+
+    .search-bar {
+        width: 100%; /* Make the search bar take full width */
+        max-width: 900px; /* Set a maximum width for larger screens */
+        padding: 10px 45px 10px 15px; /* Padding for the search icon on the right */
+        border: 2px solid #004080;
+        border-radius: 30px;
+        outline: none;
+        font-size: 16px;
+    }
+
+    .search-icon {
+        position: absolute;
+        right: 20px; /* Place the icon inside the search bar on the right */
+        font-size: 20px;
+        color: #004080;
+        pointer-events: none; /* Ensure the icon does not interfere with input */
+        top: 50%;
+        transform: translateY(-50%); /* Center the icon vertically */
+    }
+
+    /* Add Verifier Button */
+    
+        /* Table Styling */
+        .applicant-table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
         }
 
-        .search-container {
-            display: flex;
-            align-items: center;
-            position: relative; /* Make the container relative to position the icon inside it */
+        .applicant-table th, .applicant-table td {
+            padding: 15px;
+            border: 1px solid #004080;
+            text-align: center;
         }
 
-        /* Search Icon */
-        .search-icon {
-            position: absolute;
-            right: 15px; /* Place the icon to the right inside the search bar */
-            font-size: 20px;
-            color: #004080;
-            pointer-events: none; /* Ensure the icon does not interfere with input */
+        .applicant-table th {
+            background-color: #004080;
+            color: white;
         }
 
-        .search-bar {
-            width: 550px; /* Increased width */
-            padding: 10px 45px 10px 15px; /* Leave padding for the search icon on the right */
-            border: 2px solid #004080;
-            border-radius: 30px;
-            outline: none;
-            font-size: 16px;
+        .applicant-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .applicant-table tr:hover {
+            background-color: #e6f7ff;
         }
 
         .search-button {
@@ -175,25 +206,25 @@
                 <td>123456</td>
                 <td>Completed</td>
                 <td>
-                    <button class="view-button" type="button">View</button></td>
+                    <asp:Button runat="server" Text="View" ID="Button1" OnClick="Button1_Click" />
             </tr>
             <tr>
                 <td>546885</td>
                 <td>In Progress</td>
                 <td>
-                    <button class="view-button" type="button">View</button></td>
+                    <asp:Button runat="server" Text="View" ID="Button2" OnClick="Button1_Click" /></td>
             </tr>
             <tr>
                 <td>151846</td>
                 <td>Incomplete</td>
                 <td>
-                    <button class="view-button" type="button">View</button></td>
+                    <asp:Button runat="server" Text="View" ID="Button3" OnClick="Button1_Click" /></td>
             </tr>
             <tr>
                 <td>846565</td>
                 <td>Completed</td>
                 <td>
-                    <button class="view-button" type="button">View</button></td>
+                    <asp:Button runat="server" Text="View" ID="Button4" OnClick="Button1_Click" /></td>
             </tr>
         </tbody>
     </table>
@@ -235,7 +266,6 @@
             document.getElementById("filter-button").addEventListener("click", toggleFilters);
             document.getElementById("close-modal").addEventListener("click", closeFilter);
             document.querySelector(".filter-options").addEventListener("change", applyFiltersAndSearch);
-            document.getElementById("search-button").addEventListener("click", applyFiltersAndSearch);
             document.getElementById("search-bar").addEventListener("input", applyFiltersAndSearch);
         });
 
