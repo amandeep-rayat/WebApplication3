@@ -1,10 +1,10 @@
-﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="ForgotPassword.aspx.cs" Inherits="WebApplication3.ForgotPassword" %>
+﻿<%@ Page Title="Forgot Password" Language="C#" AutoEventWireup="true" CodeBehind="ForgotPassword.aspx.cs" Inherits="WebApplication3.ForgotPassword" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Forget Password</title>
+    <title>Forgot Password</title>
     <style>
         body {
             margin: 0;
@@ -44,29 +44,29 @@
             align-items: center;
         }
 
-        .email-container input {
-            width: 75%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-        }
+            .email-container input {
+                width: 75%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 14px;
+            }
 
-        .email-container button {
-            width: 20%;
-            padding: 8px;
-            background-color: #0056b3;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 12px;
-            border-radius: 4px;
-            height: 40px;
-        }
+            .email-container button {
+                width: 20%;
+                padding: 8px;
+                background-color: #0056b3;
+                color: white;
+                border: none;
+                cursor: pointer;
+                font-size: 12px;
+                border-radius: 4px;
+                height: 40px;
+            }
 
-        .email-container button:hover {
-            background-color: #0026ff;
-        }
+                .email-container button:hover {
+                    background-color: #0026ff;
+                }
 
         .error-icon {
             color: red;
@@ -79,10 +79,10 @@
             margin-top: 10px;
         }
 
-        .timer .highlight {
-            color: red;
-            font-weight: bold;
-        }
+            .timer .highlight {
+                color: red;
+                font-weight: bold;
+            }
 
         .otp-container input {
             width: 100%;
@@ -104,9 +104,9 @@
             border-radius: 4px;
         }
 
-        .btnSubmit:hover {
-            background-color: #0026ff;
-        }
+            .btnSubmit:hover {
+                background-color: #0026ff;
+            }
     </style>
 
     <script>

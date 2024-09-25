@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VerificationStatus.aspx.cs" Inherits="WebApplication3.VerificationStatus" %>
+﻿<%@ Page Title="Verification Status" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VerificationStatus.aspx.cs" Inherits="WebApplication3.VerificationStatus" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
         /* Centered Search Section */
@@ -13,11 +13,13 @@
             display: flex;
             align-items: center;
             position: relative;
+            width: 370px;
         }
 
         .search-bar {
-            width: 550px; /* Increased width */
-            padding: 10px 45px 10px 15px; /* Leave padding for the search icon on the right */
+            width: 100%; /* Make the search bar take full width */
+            max-width: 900px; /* Set a maximum width for larger screens */
+            padding: 10px 45px 10px 15px; /* Padding for the search icon on the right */
             border: 2px solid #004080;
             border-radius: 30px;
             outline: none;
@@ -26,11 +28,45 @@
 
         .search-icon {
             position: absolute;
-            right: 15px; /* Place the icon to the right inside the search bar */
+            right: 20px; /* Place the icon inside the search bar on the right */
             font-size: 20px;
             color: #004080;
             pointer-events: none; /* Ensure the icon does not interfere with input */
+            top: 50%;
+            transform: translateY(-50%); /* Center the icon vertically */
         }
+
+
+        .add-btn .icon {
+            margin-right: 5px;
+            font-size: 18px;
+        }
+        /* Table Styling */
+        .applicant-table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+            .applicant-table th, .applicant-table td {
+                padding: 15px;
+                border: 1px solid #004080;
+                text-align: center;
+            }
+
+            .applicant-table th {
+                background-color: #004080;
+                color: white;
+            }
+
+            .applicant-table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            .applicant-table tr:hover {
+                background-color: #e6f7ff;
+            }
+
 
         .filter-button {
             background-color: #004080; /* Blue background for filter button */
@@ -84,33 +120,6 @@
                 cursor: pointer;
             }
 
-        /* Table Styling */
-        .applicant-table {
-            width: 80%;
-            margin: 0 auto;
-            border-collapse: collapse;
-        }
-
-            .applicant-table th {
-                background-color: #004080; /* Blue background for table headers */
-                color: white;
-                padding: 15px;
-                text-align: center;
-            }
-
-            .applicant-table td {
-                padding: 15px;
-                border: 1px solid #004080; /* Blue border for table cells */
-                text-align: center;
-            }
-
-            .applicant-table tr:nth-child(even) {
-                background-color: #f2f2f2;
-            }
-
-            .applicant-table tr:hover {
-                background-color: #e6f7ff; /* Light blue hover effect */
-            }
 
         /* Dropdown Icon */
         .dropdown-icon {
@@ -120,10 +129,11 @@
     </style>
 
     <!-- Centered Search Section with Filter Button -->
-        <div class="search-section">
+    <div class="search-section">
         <div class="search-container">
             <input type="text" id="search-bar" class="search-bar" placeholder="Search Applicant / Scholarship / Status    " />
-            <span class="search-icon">&#128269;</span> <!-- Unicode for search icon -->
+            <span class="search-icon">&#128269;</span>
+            <!-- Unicode for search icon -->
         </div>
         <button id="filter-button" class="filter-button" type="button">ADVANCED FILTER</button>
     </div>
@@ -232,6 +242,7 @@
         // Event Listeners
         document.getElementById("filter-button").addEventListener("click", toggleFilters);
         document.getElementById("close-modal").addEventListener("click", closeFilter);
-        document.getElementById("search-button").addEventListener("click", applyFiltersAndSearch);
+        document.querySelector(".filter-options").addEventListener("change", applyFiltersAndSearch);
+        document.getElementById("search-bar").addEventListener("input", applyFiltersAndSearch);
     </script>
 </asp:Content>

@@ -16,8 +16,8 @@
     <link href="~/photos/photo.png" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body>
-    <form runat="server">
+<body class="mh-100">
+    <form runat="server" class="min-100">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -42,8 +42,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="container d-flex justify-content-between">
-                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-around" style="margin: 0 15%">
-                    <ul class="navbar-nav flex-grow-1 justify-content-around">
+                <div class="navbar-collapse d-sm-inline-flex justify-content-around" style="margin: 0 15%">
+                    <ul class="navbar-nav flex-grow-1 justify-content-around text-center">
                         <li class="nav-item"><a class="nav-link text-white" runat="server" href="~/">Home</a></li>
                         <li class="nav-item"><a class="nav-link text-white" runat="server" href="~/BusinessRules">Business Rules</a></li>
                         <li class="nav-item"><a class="nav-link text-white" runat="server" href="~/AddVerifier">Add Verifier</a></li>
@@ -72,19 +72,27 @@
                 <li><a href="/ViewStats" runat="server">VIEW STATS</a></li>
             </ul>
         </div>
-        <div class="container body-content">
+        <div class="container body-content min-100">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
-            <footer class="text-center foot">
-                <hr />
-                <p>&copy; <%: DateTime.Now.Year %> - Copyright Reserved : Team Kalki</p>
-            </footer>
         </div>
     </form>
+    <footer class="text-center position-relative bottom-0 w-100">
+        <hr />
+        <p>&copy; <%: DateTime.Now.Year %> - Copyright Reserved : Team Kalki</p>
+    </footer>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>
     <style>
+        .mh-100 {
+            min-height: 80vh;
+        }
+
+        .min-100 {
+            min-height: 80vh;
+        }
+
         .nav {
             background-color: #004080;
             color: white;

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ViewBusinessRules.aspx.cs" Inherits="WebApplication3.ViewBusinessRules" %>
+﻿<%@ Page Title="Business Rules" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="ViewBusinessRules.aspx.cs" Inherits="WebApplication3.ViewBusinessRules" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -47,8 +47,6 @@
             border: 1px solid black;
         }
         /* Logout Button */
-        
-
     </style>
 
     <!-- Main Container -->

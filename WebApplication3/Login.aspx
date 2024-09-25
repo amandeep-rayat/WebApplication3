@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebApplication3.Login" %>
+﻿<%@ Page Title="Log In" Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebApplication3.Login" %>
 
 <!DOCTYPE html>
 
@@ -32,38 +32,36 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            border: 2px solid #003366; /* Light Blue Border */ 
+            border: 2px solid #003366; /* Light Blue Border */
             margin-bottom: 30px;
         }
 
         .input-group {
-            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             margin-bottom: 20px;
         }
 
         input[type="text"], input[type="password"] {
             width: 100%;
             padding: 10px;
-            border: 1px solid #003366;
+            border: 1px solid black;
             border-radius: 5px;
             font-size: 14px;
-            outline: none;
-            transition: border-color 0.3s;
         }
 
             input[type="text"]:focus, input[type="password"]:focus {
-                border-color: #003366; /* Dark Blue */
+                border: 2px solid black; /* Dark Blue */
             }
-
-
 
         .forgot-password {
             display: block;
             margin-bottom: 20px;
             color: #003366;
-            text-decoration: none;
             text-decoration: underline;
-            font-size: 12px;
+            font-size: 14px;
         }
 
             .forgot-password:hover {
@@ -72,7 +70,8 @@
 
         .login-btn {
             width: 60%;
-            padding: 10px;
+            padding-bottom: 10px;
+            padding-top: 10px;
             background-color: #003366;
             color: white;
             border: none;
@@ -85,9 +84,10 @@
             .login-btn:hover {
                 background-color: #002244; /* Darker Blue */
             }
+
         .text-danger {
-    color:red;
-}
+            color: red;
+        }
     </style>
 
 </head>
@@ -99,12 +99,12 @@
         </div>
         <form id="form1" runat="server">
             <div class="input-group">
-                <asp:TextBox runat="server" TextMode="SingleLine" id="userid" placeholder="USER ID" required="required"/>
+                <asp:TextBox runat="server" TextMode="SingleLine" ID="userid" placeholder="Email ID" required="required" />
                 <asp:RegularExpressionValidator runat="server" ID="emailValidate" ErrorMessage="Enter a Valid Email" CssClass="text-danger" ControlToValidate="userid" ValidationExpression="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                 <span class="error-icon"></span>
             </div>
             <div class="input-group">
-                <asp:Textbox runat="server" TextMode="Password" id="password" placeholder="Password" required="required"/>
+                <asp:TextBox runat="server" TextMode="Password" ID="password" placeholder="Password" required="required" />
                 <asp:RegularExpressionValidator runat="server" ID="passwordValidate" ErrorMessage="Enter a Strong Password" CssClass="text-danger" ControlToValidate="password" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"></asp:RegularExpressionValidator>
                 <span class="error-icon"></span>
             </div>

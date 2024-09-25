@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="ChangePassword.aspx.cs" Inherits="WebApplication3.ChangePassword" %>
+﻿<%@ Page Title="Change Password" Language="C#" AutoEventWireup="true" CodeBehind="ChangePassword.aspx.cs" Inherits="WebApplication3.ChangePassword" %>
 
 <!DOCTYPE html>
 
@@ -63,54 +63,22 @@
             font-weight: bold;
         }
 
-        button {
-            background-color: #003366;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            width: 100%;
-            font-size: 16px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
+        #btnSubmit{
+    width: 60%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: #003366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
 
-            button:hover {
-                background-color: #0026ff;
-            }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            background-color: white;
-            border: 1px solid #ddd;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            text-align: center;
-            z-index: 100;
-        }
-
-            .modal button {
-                margin: 5px;
-                padding: 5px 15px;
-                font-size: 14px;
-                cursor: pointer;
-            }
-
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 99;
-        }
+    #btnSubmit:hover {
+        background-color: #002244; /* Darker Blue */
+    }
 
         .show-password-container {
             display: flex;
@@ -124,7 +92,7 @@
             }
 
         .text-danger {
-            color:red;
+            color: red;
         }
     </style>
 
@@ -135,25 +103,17 @@
             <div class="change-password-box">
                 <h2>CHANGE PASSWORD</h2>
                 <asp:TextBox ID="txtNewPassword" runat="server" TextMode="Password" CssClass="input-group" placeholder="New Password" />
-                <asp:RegularExpressionValidator ID="NewPassValid" runat="server" CssClass="text-danger" ErrorMessage="Enter a Strong Password" ControlToValidate="txtNewPassword" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"></asp:RegularExpressionValidator>
+                <asp:RegularExpressionValidator ID="NewPassValid" runat="server" CssClass="text-danger" ErrorMessage="Enter a Strong Password" ControlToValidate="txtNewPassword" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" Display="Dynamic"></asp:RegularExpressionValidator>
                 <asp:TextBox ID="txtConfirmPassword" runat="server" TextMode="Password" CssClass="input-group" placeholder="Confirm Password" />
-                
+                <asp:CompareValidator ID="CompPass" runat="server" CssClass="text-danger" ErrorMessage="Both Password are different." ControlToValidate="txtConfirmPassword" ControlToCompare="txtNewPassword" Display="Dynamic" Operator="Equal" Type="String"></asp:CompareValidator>
                 <!-- Checkbox to toggle password visibility -->
                 <div class="show-password-container">
                     <input type="checkbox" id="showPassword" onclick="togglePasswordVisibility()" />
                     <label for="showPassword">Show Confirm Password</label>
                 </div>
                 <br />
-                <asp:Button ID="btnSubmit" runat="server" Text="SUBMIT" OnClientClick="showConfirmation(); return false;" OnClick="Submit_Click" BackColor="#003366" ForeColor="White" Height="32px" Width="149px" />
+                <asp:Button ID="btnSubmit" runat="server" Text="SUBMIT" OnClick="Submit_Click" Height="32px" Width="149px" />
             </div>
-        </div>
-
-        <!-- Modal for Confirmation -->
-        <div class="modal-overlay" id="modalOverlay"></div>
-        <div class="modal" id="confirmationModal">
-            <p>Are you sure?</p>
-            <button onclick="submitForm()">Yes</button>
-            <button onclick="hideConfirmation()">No</button>
         </div>
     </form>
 
@@ -169,6 +129,6 @@
         }
     </script>
 
-    
+
 </body>
 </html>

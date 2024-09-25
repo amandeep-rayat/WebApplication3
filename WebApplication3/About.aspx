@@ -9,11 +9,11 @@
             <section class="" style="max-width: 900px" aria-labelledby="hostingTitle">
                 <h4>About Us:</h4>
                 <p>
-                    This project aims to develop a comprehensive platform to manage scholarship applications for a college or educational institution. It focuses on improving system integration, data accessibility, and transparency throughout the scholarship process. The platform includes essential features such as user registration and authentication, scholarship application submission, and real-time tracking of application statuses.
-
-Additionally, the system provides administrators with a real-time reporting dashboard for monitoring application data and generating insights. It also includes an API that facilitates seamless communication with external systems, allowing smooth data exchange between the scholarship platform and other services.
-
-The platform is designed to enhance the user experience for both students and administrators by offering intuitive interfaces, real-time notifications, and status updates. Hosted in a cloud environment, it ensures scalability, reliability, and secure access to data. The system is built with a focus on operational efficiency, reducing manual effort and improving the overall management of scholarship information. Security measures, such as encryption and multi-factor authentication, are incorporated to ensure data protection and regulatory compliance.
+                    The Scholarship Process is an intensive process that involves multiple steps throughout the process. 
+                    An applicant fills in the form first, then the form data is stored, and the eligibility of applicants is verified.
+                   The eligible applications are stored, and further processes are initiated which include verification of documents, 
+                    and approval from authorities, followed by many steps of updating and notifying both authorities and applicants 
+                    about the status of the application process. This website provides a user-friendly interface to the admin and verifier.
                 </p>
             </section>
         </div>

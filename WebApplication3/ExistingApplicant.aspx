@@ -1,44 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ExistingApplicant.aspx.cs" Inherits="WebApplication3.ExistingApplicant" %>
+﻿<%@ Page Title="Existing Applicant" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ExistingApplicant.aspx.cs" Inherits="WebApplication3.ExistingApplicant" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
         /* Centered Search Section */
-        .search-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .search-container {
-            display: flex;
-            align-items: center;
-            position: relative;
-        }
-
-        .search-bar {
-             width: 550px; /* Increased width */
-padding: 10px 45px 10px 15px; /* Leave padding for the search icon on the right */
-border: 2px solid #004080;
-border-radius: 30px;
-outline: none;
-font-size: 16px;
-        }
-
-        .search-icon {
-    position: absolute;
-    right: 15px; /* Place the icon to the right inside the search bar */
-    font-size: 20px;
-    color: #004080;
-    pointer-events: none; /* Ensure the icon does not interfere with input */
-}
 
         .search-button {
             background-color: #004080;
-color: white;
-padding: 10px;
-border: none;
-border-radius: 0 30px 30px 0;
-cursor: pointer;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
         }
 
             .search-button:hover {
@@ -97,24 +68,63 @@ cursor: pointer;
                 cursor: pointer;
             }
 
+
+        .dropdown-icon {
+            font-size: 12px;
+            margin-left: 5px;
+        }
+        /* Centered Search Section */
+        .search-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 370px;
+        }
+
+        .search-bar {
+            width: 100%; /* Make the search bar take full width */
+            max-width: 900px; /* Set a maximum width for larger screens */
+            padding: 10px 45px 10px 15px; /* Padding for the search icon on the right */
+            border: 2px solid #004080;
+            border-radius: 30px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 20px; /* Place the icon inside the search bar on the right */
+            font-size: 20px;
+            color: #004080;
+            pointer-events: none; /* Ensure the icon does not interfere with input */
+            top: 50%;
+            transform: translateY(-50%); /* Center the icon vertically */
+        }
+
+
         /* Table Styling */
         .applicant-table {
             width: 80%;
-            margin: 0 auto;
+            margin: 20px auto;
             border-collapse: collapse;
         }
+
+            .applicant-table th, .applicant-table td {
+                padding: 15px;
+                border: 1px solid #004080;
+                text-align: center;
+            }
 
             .applicant-table th {
                 background-color: #004080;
                 color: white;
-                padding: 15px;
-                text-align: center;
-            }
-
-            .applicant-table td {
-                padding: 15px;
-                border: 1px solid #004080;
-                text-align: center;
             }
 
             .applicant-table tr:nth-child(even) {
@@ -124,18 +134,13 @@ cursor: pointer;
             .applicant-table tr:hover {
                 background-color: #e6f7ff;
             }
-
-        .dropdown-icon {
-            font-size: 12px;
-            margin-left: 5px;
-        }
     </style>
-
     <!--Centered Search Section with Filter Button -->
     <div class="search-section">
         <div class="search-container">
-            <input type="text" id="search-bar" class="search-bar" placeholder="Search Applicant / Scholarship / Status" />
-            <span class="search-icon">&#128269;</span> <!-- Unicode for search icon -->
+            <input type="text" id="search-bar" class="search-bar" placeholder="Search Applicant / Scholarship / Status    " />
+            <span class="search-icon">&#128269;</span>
+            <!-- Unicode for search icon -->
         </div>
         <button id="filter-button" class="filter-button" type="button">ADVANCED FILTER</button>
     </div>
@@ -171,63 +176,42 @@ cursor: pointer;
     </div>
 
     <!-- Applicant Table -->
-    <!-- Applicant Table -->
     <table class="applicant-table">
         <thead>
             <tr>
                 <th>APPLICANT ID</th>
                 <th>SCHOLARSHIP NAME</th>
-                <th>Check Box</th>
-                <th>ASSIGNED TO <span class="dropdown-icon">▼</span></th>
+                <th>STATUS</th>
+                <th>ASSIGNED TO</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td>123456</td>
                 <td>UG SCHOLARSHIP</td>
+                <td>Completed</td>
                 <td>
-                    <input type="checkbox" name="select-applicant"></td>
-                <td>
-                    <select name="assigned-to">
-                        <option value="">Select Assignee</option>
-                        <option value="name1">Name1</option>
-                        <option value="name2">Name2</option>
-                        <option value="name3">Name3</option>
-                    </select>
+                    <label name="assigned-to-name1" width="50px"></label>
                 </td>
             </tr>
             <tr>
                 <td>546885</td>
-                <td>PG SCHOLARSHIP </td>
+                <td>PG SCHOLARSHIP</td>
+                <td>In Progress</td>
                 <td>
-                    <input type="checkbox" name="select-applicant"></td>
-                <td>
-                    <select name="assigned-to">
-                        <option value="">Select Assignee</option>
-                        <option value="name1">Name1</option>
-                        <option value="name2">Name2</option>
-                        <option value="name3">Name3</option>
-                    </select>
+                    <label name="assigned-to-name1" width="50px"></label>
                 </td>
             </tr>
             <tr>
                 <td>151846</td>
                 <td>PHD SCHOLARSHIP</td>
+                <td>Incomplete</td>
                 <td>
-                    <input type="checkbox" name="select-applicant"></td>
-                <td>
-                    <select name="assigned-to">
-                        <option value="">Select Assignee</option>
-                        <option value="name1">Name1</option>
-                        <option value="name2">Name2</option>
-                        <option value="name3">Name3</option>
-                    </select>
+                    <label name="assigned-to-name1" width="50px"></label>
                 </td>
             </tr>
         </tbody>
     </table>
-
-
     <script>
         function toggleFilters() {
             const modal = document.getElementById("filter-modal");
@@ -266,9 +250,10 @@ cursor: pointer;
             document.getElementById("filter-button").addEventListener("click", toggleFilters);
             document.getElementById("close-modal").addEventListener("click", closeFilter);
             document.querySelector(".filter-options").addEventListener("change", applyFiltersAndSearch);
-            document.getElementById("search-button").addEventListener("click", applyFiltersAndSearch);
             document.getElementById("search-bar").addEventListener("input", applyFiltersAndSearch);
         });
     </script>
+
+
 
 </asp:Content>

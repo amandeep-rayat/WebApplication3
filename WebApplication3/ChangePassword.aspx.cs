@@ -12,7 +12,10 @@ namespace WebApplication3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["username"] == null)
+            {
+                //Response.Redirect("Login.aspx");
+            }
         }
         protected void Submit_Click(object sender, EventArgs e)
         {
@@ -30,8 +33,6 @@ namespace WebApplication3
                 {
                     // Simulate changing the password in the system (e.g., updating the database)
                     // Show a success message after the password is successfully changed.
-                    Response.Write("<script>alert('Are You Sure!');</script>");
-                    Response.Write("<script>alert('Password changed successfully!');</script>");
                     Response.Redirect("Login.aspx");
                 }
                 else
@@ -66,8 +67,6 @@ namespace WebApplication3
             // Check password validity in real-time
             if (!ValidatePassword(newPassword))
             {
-                // You can implement real-time feedback here for invalid password format
-               // Response.Write("<script>alert('Are You Sure!');</script>");
                 Response.Write("<script>alert('Password does not meet the criteria.');</script>");
             }
         }

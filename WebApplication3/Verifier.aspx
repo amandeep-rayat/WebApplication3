@@ -2,42 +2,42 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
         /* Centered Search Section */
-       .search-section {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-    }
+        .search-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
 
-    .search-container {
-        display: flex;
-        align-items: center;
-        position: relative;
-        width: 370px;
-    }
+        .search-container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 370px;
+        }
 
-    .search-bar {
-        width: 100%; /* Make the search bar take full width */
-        max-width: 900px; /* Set a maximum width for larger screens */
-        padding: 10px 45px 10px 15px; /* Padding for the search icon on the right */
-        border: 2px solid #004080;
-        border-radius: 30px;
-        outline: none;
-        font-size: 16px;
-    }
+        .search-bar {
+            width: 100%; /* Make the search bar take full width */
+            max-width: 900px; /* Set a maximum width for larger screens */
+            padding: 10px 45px 10px 15px; /* Padding for the search icon on the right */
+            border: 2px solid #004080;
+            border-radius: 30px;
+            outline: none;
+            font-size: 16px;
+        }
 
-    .search-icon {
-        position: absolute;
-        right: 20px; /* Place the icon inside the search bar on the right */
-        font-size: 20px;
-        color: #004080;
-        pointer-events: none; /* Ensure the icon does not interfere with input */
-        top: 50%;
-        transform: translateY(-50%); /* Center the icon vertically */
-    }
+        .search-icon {
+            position: absolute;
+            right: 20px; /* Place the icon inside the search bar on the right */
+            font-size: 20px;
+            color: #004080;
+            pointer-events: none; /* Ensure the icon does not interfere with input */
+            top: 50%;
+            transform: translateY(-50%); /* Center the icon vertically */
+        }
 
-    /* Add Verifier Button */
-    
+        /* Add Verifier Button */
+
         /* Table Styling */
         .applicant-table {
             width: 80%;
@@ -45,24 +45,24 @@
             border-collapse: collapse;
         }
 
-        .applicant-table th, .applicant-table td {
-            padding: 15px;
-            border: 1px solid #004080;
-            text-align: center;
-        }
+            .applicant-table th, .applicant-table td {
+                padding: 15px;
+                border: 1px solid #004080;
+                text-align: center;
+            }
 
-        .applicant-table th {
-            background-color: #004080;
-            color: white;
-        }
+            .applicant-table th {
+                background-color: #004080;
+                color: white;
+            }
 
-        .applicant-table tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
+            .applicant-table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
 
-        .applicant-table tr:hover {
-            background-color: #e6f7ff;
-        }
+            .applicant-table tr:hover {
+                background-color: #e6f7ff;
+            }
 
         .search-button {
             background-color: #004080;
@@ -166,7 +166,8 @@
     <div class="search-section">
         <div class="search-container">
             <input type="text" id="search-bar" class="search-bar" placeholder="Search Applicant / Scholarship / Status" />
-            <span class="search-icon">&#128269;</span> <!-- Unicode for search icon -->
+            <span class="search-icon">&#128269;</span>
+            <!-- Unicode for search icon -->
         </div>
         <button id="filter-button" class="filter-button" type="button">ADVANCED FILTER</button>
     </div>

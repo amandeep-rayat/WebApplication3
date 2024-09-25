@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="VerifierSelectCandidate.aspx.cs" Inherits="WebApplication3.VerifierSelectCandidate" %>
+﻿<%@ Page Title="Selected Candidate" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="VerifierSelectCandidate.aspx.cs" Inherits="WebApplication3.VerifierSelectCandidate" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
         .search-section {
@@ -15,7 +15,7 @@
 
         .search-bar {
             max-width: none;
-            width:900px;
+            width: 900px;
             padding: 10px;
             border: 2px solid #004080;
             border-radius: 30px;
@@ -62,15 +62,15 @@
                 background-color: #003366;
             }
 
-/*        .decision-radio {
+        /*        .decision-radio {
             display: flex;
             justify-content: space-around;
         }*/
 
-            .decision-radio label {
-                display: inline-block;
-                margin-right: 15px;
-            }
+        .decision-radio label {
+            display: inline-block;
+            margin-right: 15px;
+        }
 
         input[type="radio"] {
             width: 20px;
@@ -91,7 +91,7 @@
         }
 
         textarea {
-            width:100%;
+            width: 100%;
             max-width: none;
             height: 50px;
             border: 1px solid black;
@@ -203,23 +203,23 @@
     </div>
 
     <script>
-            // Function to filter and search by S.No. or Document Name
-            function applyFiltersAndSearch() {
-                const searchQuery = document.getElementById("search-bar").value.toLowerCase();
-                const rows = document.querySelectorAll(".applicant-table tbody tr");
+        // Function to filter and search by S.No. or Document Name
+        function applyFiltersAndSearch() {
+            const searchQuery = document.getElementById("search-bar").value.toLowerCase();
+            const rows = document.querySelectorAll(".applicant-table tbody tr");
 
-                rows.forEach(row => {
-                    const sno = row.children[0].textContent.toLowerCase();
-                    const documentName = row.children[1].textContent.toLowerCase();
-                    const matchesSearch = sno.includes(searchQuery) || documentName.includes(searchQuery);
+            rows.forEach(row => {
+                const sno = row.children[0].textContent.toLowerCase();
+                const documentName = row.children[1].textContent.toLowerCase();
+                const matchesSearch = sno.includes(searchQuery) || documentName.includes(searchQuery);
 
-                    // Show row if it matches the search query, otherwise hide it
-                    row.style.display = matchesSearch ? "" : "none";
-                });
-            }
+                // Show row if it matches the search query, otherwise hide it
+                row.style.display = matchesSearch ? "" : "none";
+            });
+        }
 
-            // Add event listener for real-time filtering as the user types
-            document.getElementById("search-bar").addEventListener("input", applyFiltersAndSearch);
+        // Add event listener for real-time filtering as the user types
+        document.getElementById("search-bar").addEventListener("input", applyFiltersAndSearch);
     </script>
 
 </asp:Content>
