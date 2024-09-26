@@ -38,8 +38,8 @@
         </asp:ScriptManager>
 
         <nav class="navbar navbar-expand-sm nav">
-            <button type="button" class="sidebar-toggler border-0 mx-xl-4" title="Toggle sidebar">
-                <span class="navbar-toggler-icon"></span>
+            <button type="button" class="sidebar-toggler border-0 mx-xl-4" title="Toggle sidebar" style="background-color: #123C69; color: white;">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
             <div class="container d-flex justify-content-between">
                 <div class="navbar-collapse d-sm-inline-flex justify-content-around" style="margin: 0 15%">
@@ -85,6 +85,9 @@
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
     </asp:PlaceHolder>
     <style>
+        form {
+            background-color: #F7F9F2;
+        }
         .mh-100 {
             min-height: 80vh;
         }
@@ -94,7 +97,7 @@
         }
 
         .nav {
-            background-color: #004080;
+            background-color: #123C69;
             color: white;
             font-size: 20px;
         }
@@ -109,7 +112,7 @@
             position: fixed;
             top: 0;
             left: -250px;
-            background-color: #004080;
+            background-color: #123C69;
             overflow-x: hidden;
             transition: 0.5s;
             padding-top: 60px;

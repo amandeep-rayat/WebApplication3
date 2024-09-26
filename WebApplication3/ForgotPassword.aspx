@@ -1,10 +1,10 @@
-﻿<%@ Page Title="Forgot Password" Language="C#" AutoEventWireup="true" CodeBehind="ForgotPassword.aspx.cs" Inherits="WebApplication3.ForgotPassword" %>
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="ForgotPassword.aspx.cs" Inherits="WebApplication3.ForgotPassword" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Forgot Password</title>
+    <title>Forget Password</title>
     <style>
         body {
             margin: 0;
@@ -19,6 +19,7 @@
 
         .forgot-password-container {
             width: 350px;
+            height:350px;
             padding: 30px;
             text-align: center;
             border-radius: 10px;
@@ -38,35 +39,35 @@
         }
 
         .email-container {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            align-items: center;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.email-container input {
+    width: 75%; /* Increased width to take 70% of the container */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.email-container button {
+    width: 25%; /* Decreased width to take 25% of the container */
+    padding: 8px;
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 4px;
+    height: 40px;
+}
+
+        .email-container button:hover {
+            background-color: #0026ff;
         }
-
-            .email-container input {
-                width: 75%;
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                font-size: 14px;
-            }
-
-            .email-container button {
-                width: 20%;
-                padding: 8px;
-                background-color: #0056b3;
-                color: white;
-                border: none;
-                cursor: pointer;
-                font-size: 12px;
-                border-radius: 4px;
-                height: 40px;
-            }
-
-                .email-container button:hover {
-                    background-color: #0026ff;
-                }
 
         .error-icon {
             color: red;
@@ -79,10 +80,17 @@
             margin-top: 10px;
         }
 
-            .timer .highlight {
-                color: red;
-                font-weight: bold;
-            }
+        .timer .highlight {
+            color: red;
+            font-weight: bold;
+        }
+
+        .otp-container{
+            display: flex;
+justify-content: space-around;
+margin-bottom: 20px;
+align-items: center;
+        }
 
         .otp-container input {
             width: 100%;
@@ -98,18 +106,27 @@
             color: white;
             padding: 10px;
             border: none;
-            width: 100%;
+            width: 35%;
             cursor: pointer;
             font-size: 16px;
             border-radius: 4px;
         }
 
-            .btnSubmit:hover {
-                background-color: #0026ff;
-            }
+        .btnSubmit:hover {
+            background-color: #0026ff;
+        }
+
+        .resend-link {
+            display: none; /* Hidden by default */
+            margin-top: 10px;
+            color: blue;
+            cursor: pointer;
+        }
     </style>
 
     <script>
+        var interval; // Declare interval variable
+
         function startTimer() {
             var timer = 60; // Set timer to 60 seconds
 
@@ -125,17 +142,32 @@
 
                 // Update the label with the remaining time
                 document.getElementById("<%= lblTimer.ClientID %>").innerHTML =
-                    (minutes < 10 ? '0' + minutes : minutes) + ":" + (seconds < 10 ? '0' + seconds : seconds);
+                    "Time left " + (minutes < 10 ? '0' + minutes : minutes) + ":" + (seconds < 10 ? '0' + seconds : seconds);
 
                 // Decrease the timer by 1 second
                 timer--;
-
+                SendOTP.disabled = true;
                 // When the timer reaches 0, stop the interval
                 if (timer < 0) {
                     clearInterval(interval);
+                    SendOTP.disabled = false;
                     document.getElementById("<%= lblTimer.ClientID %>").innerHTML = "00:00";
+                    document.getElementById("resendLink").style.display = "block"; // Show resend link
                 }
             }, 1000); // Update every 1 second
+        }
+
+        function onOtpSent() {
+            document.getElementById("<%= lblTimer.ClientID %>").innerHTML = "OTP sent. Time left: 01:00";
+            document.getElementById("resendLink").style.display = "none"; // Hide resend link
+
+            startTimer(); // Start the timer
+        }
+
+        function resendOtp() {
+            // Logic to resend OTP
+            alert("OTP has been resent!"); // Placeholder alert; replace with actual logic.
+            onOtpSent(); // Restart the timer and update message
         }
     </script>
 
@@ -148,8 +180,7 @@
 
             <div class="email-container">
                 <asp:TextBox ID="txtEmail" runat="server" placeholder="EMAIL"></asp:TextBox>
-                <!-- Send OTP Button -->
-                <asp:Button ID="SendOTP" runat="server" Text="SEND OTP" OnClick="SendOTP_Click" CssClass="email-button" />
+                &nbsp;<!-- Send OTP Button --><asp:Button ID="SendOTP" runat="server" Text="SEND OTP" OnClick="SendOTP_Click" CssClass="email-button" OnClientClick="onOtpSent(); return false;" Height="38px" Width="25%" />
                 <span class="error-icon">*</span>
             </div>
 
@@ -158,13 +189,19 @@
             </div>
 
             <div class="timer">
-                Time left: <span class="highlight">
-                    <asp:Label ID="lblTimer" runat="server">01:00</asp:Label>
+                <span class="highlight">
+                    <asp:Label ID="lblTimer" runat="server"></asp:Label>
                 </span>
                 <!-- Timer label -->
             </div>
-
+            <br />
+            <!-- Resend OTP Link -->
+            <div id="resendLink" class="resend-link" onclick="resendOtp()">
+                Resend OTP
+            </div>
+            <br />
             <asp:Button ID="btnSubmit" runat="server" Text="SUBMIT" CssClass="btnSubmit" OnClick="btnSubmit_Click1" />
+
         </div>
     </form>
 

@@ -97,19 +97,19 @@
         }
     </style>
     <div class="bg-white p-4 mb-4">
-        <div class="text-center text-xl font-bold mb-4">APPLICANT DETAILS</div>
-        <div class="border p-4 mb-4 row">
-            <div class="col">
-                <p>APPLICANT NAME:</p>
-                <asp:TextBox ID="txtApplicantName" runat="server" CssClass="border p-2" ReadOnly="true" />
+        <div class="text-center text-xl font-bold mb-4">APPLICANT ID:</div>
+        <div class="border p-4 mb-4 container w-50">
+            <div class="row">
+                <p class="col mt-3">APPLICANT NAME:</p>
+                <asp:TextBox ID="txtApplicantName" runat="server" CssClass="border col" ReadOnly="true" />
             </div>
-            <div class="col">
-                <p>SCHOLARSHIP NAME:</p>
-                <asp:TextBox ID="txtScholarshipName" runat="server" CssClass="border p-2" ReadOnly="true" />
+            <div class="row">
+                <p class="col mt-3">SCHOLARSHIP NAME:</p>
+                <asp:TextBox ID="txtScholarshipName" runat="server" CssClass="border col" ReadOnly="true" />
             </div>
-            <div class="col">
-                <p>YEAR :</p>
-                <asp:TextBox ID="txtYear" runat="server" CssClass="border p-2" ReadOnly="true" />
+            <div class="row">
+                <p class="col mt-3">YEAR :</p>
+                <asp:TextBox ID="txtYear" runat="server" CssClass="border col" ReadOnly="true" />
             </div>
         </div>
 

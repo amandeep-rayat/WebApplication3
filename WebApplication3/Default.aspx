@@ -31,6 +31,7 @@
                 cursor: pointer;
                 text-align: center;
                 max-width: none;
+                border-radius:35px;
             }
 
             .mt-3 {
@@ -38,7 +39,7 @@
             }
 
             .btn:hover {
-                background-color: #004080;
+                background-color: #d13672;
             }
         </style>
         <div class="button-grid">
