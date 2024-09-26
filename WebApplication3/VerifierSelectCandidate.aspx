@@ -28,6 +28,8 @@
             height: 20%;
             margin: 20px auto;
             border-collapse: collapse;
+            
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
         }
 
             .applicant-table th, .applicant-table td {
@@ -37,16 +39,17 @@
             }
 
             .applicant-table th {
-                background-color: #004080;
+                background-color: #d13672;
                 color: white;
             }
 
-            .applicant-table tr:nth-child(even) {
-                background-color: #f2f2f2;
+            .applicant-table tr {
+                background-color: white;
             }
 
             .applicant-table tr:hover {
-                background-color: #e6f7ff;
+               
+                background-color:#FAE29C;
             }
 
         .view-btn {

@@ -21,6 +21,7 @@
             max-width: 900px; /* Set a maximum width for larger screens */
             padding: 10px 45px 10px 15px; /* Padding for the search icon on the right */
             border: 2px solid #004080;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
             border-radius: 30px;
             outline: none;
             font-size: 16px;
@@ -45,6 +46,7 @@
         .applicant-table {
             width: 80%;
             margin: 20px auto;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
             border-collapse: collapse;
         }
 
@@ -59,13 +61,13 @@
                 color: white;
             }
 
-            .applicant-table tr:nth-child(even) {
-                background-color: #f2f2f2;
-            }
+            .applicant-table tr {
+                                    background-color: #ffffff;
+}
 
-            .applicant-table tr:hover {
-                background-color: #e6f7ff;
-            }
+.applicant-table tr:hover {
+    background-color: #FAE29C;
+}
 
 
         .filter-button {
@@ -125,6 +127,10 @@
         .dropdown-icon {
             font-size: 12px;
             margin-left: 5px;
+        }
+        .view {
+            background-color: #d13672;
+            color:white;
         }
     </style>
 
@@ -198,7 +204,7 @@
                 <td><%= applicant.Status %></td>
                 <td><%= applicant.VerificationStatus %></td>
                 <td>
-                    <asp:Button runat="server" type="button" ID="ViewButton" OnClick="ViewButton_Click" Text="View"></asp:Button></td>
+                    <asp:Button runat="server" type="button" CssClass="view" ID="ViewButton" OnClick="ViewButton_Click" Text="View"></asp:Button></td>
             </tr>
             <% } %>
         </tbody>

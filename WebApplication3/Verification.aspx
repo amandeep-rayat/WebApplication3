@@ -1,6 +1,14 @@
 ﻿<%@ Page Title="Verification" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Verification.aspx.cs" Inherits="WebApplication3.Verification" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <style>
+        .maincon {
+                background-color:#FAE29C;
+        }
+
+        .contain {
+            background-color: #FAE29C;
+        }
+
         .bg-white {
             background-color: #ffffff;
             border-radius: 8px;
@@ -95,10 +103,27 @@
             resize: none;
             max-width: none;
         }
+        table {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        th {
+            color:white;
+            background-color: #d13672;
+        }
+        tbody {
+            background-color:white;
+        }
+        tr:hover {
+            background-color:#FAF0DC;
+        }
+                .view {
+            background-color: #004080;
+            color:white;
+        }
     </style>
-    <div class="bg-white p-4 mb-4">
+    <div class="p-4 mb-4 maincon">
         <div class="text-center text-xl font-bold mb-4">APPLICANT ID:</div>
-        <div class="border p-4 mb-4 container w-50">
+        <div class="border p-4 mb-4 container w-50 bg-white">
             <div class="row">
                 <p class="col mt-3">APPLICANT NAME:</p>
                 <asp:TextBox ID="txtApplicantName" runat="server" CssClass="border col" ReadOnly="true" />
@@ -154,7 +179,7 @@
                     </HeaderTemplate>
                     <ItemTemplate>
                         <div class="border p-2 text-center">
-                            <asp:Button ID="btnViewDocument" runat="server" Text="View"
+                            <asp:Button ID="btnViewDocument" runat="server" Text="View" CssClass="view"
                                 CommandArgument='<%# Eval("ApplicationID") %>'
                                 OnClientClick='<%# "window.open(\"FileDownloadHandler.ashx?ApplicationID=" + Eval("ApplicationID") + "\"); return false;" %>' />
                         </div>

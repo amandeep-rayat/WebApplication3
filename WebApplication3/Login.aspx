@@ -11,7 +11,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f8ff; /* Light blue background */
+            background-color: #FAF0DC;
         }
 
         .login-container {
@@ -72,7 +72,7 @@
             width: 60%;
             padding-bottom: 10px;
             padding-top: 10px;
-            background-color: #003366;
+            background-color: #004080;
             color: white;
             border: none;
             border-radius: 5px;

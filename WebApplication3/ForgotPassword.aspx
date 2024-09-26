@@ -13,13 +13,13 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f8ff;
+            background-color: #FAF0DC;
             font-family: Arial, sans-serif;
         }
 
         .forgot-password-container {
             width: 350px;
-            height:350px;
+            height: 350px;
             padding: 30px;
             text-align: center;
             border-radius: 10px;
@@ -39,35 +39,19 @@
         }
 
         .email-container {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
-    align-items: center;
-}
-
-.email-container input {
-    width: 75%; /* Increased width to take 70% of the container */
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-.email-container button {
-    width: 25%; /* Decreased width to take 25% of the container */
-    padding: 8px;
-    background-color: #0056b3;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 12px;
-    border-radius: 4px;
-    height: 40px;
-}
-
-        .email-container button:hover {
-            background-color: #0026ff;
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            align-items: center;
         }
+
+            .email-container input {
+                width: 75%; 
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 14px;
+            }
 
         .error-icon {
             color: red;
@@ -80,29 +64,29 @@
             margin-top: 10px;
         }
 
-        .timer .highlight {
-            color: red;
-            font-weight: bold;
-        }
+            .timer .highlight {
+                color: red;
+                font-weight: bold;
+            }
 
-        .otp-container{
+        .otp-container {
             display: flex;
-justify-content: space-around;
-margin-bottom: 20px;
-align-items: center;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            align-items: center;
         }
 
-        .otp-container input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
+            .otp-container input {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
 
         .btnSubmit {
-            background-color: #0056b3;
+            background-color: #004080;
             color: white;
             padding: 10px;
             border: none;
@@ -112,15 +96,23 @@ align-items: center;
             border-radius: 4px;
         }
 
-        .btnSubmit:hover {
-            background-color: #0026ff;
-        }
+            .btnSubmit:hover {
+                background-color: #002244;
+            }
 
         .resend-link {
             display: none; /* Hidden by default */
             margin-top: 10px;
             color: blue;
             cursor: pointer;
+        }
+
+        .email-button {
+            background-color:#0026ff;
+        }
+
+        .email-button:hover {
+            background-color:blue;
         }
     </style>
 
@@ -180,7 +172,8 @@ align-items: center;
 
             <div class="email-container">
                 <asp:TextBox ID="txtEmail" runat="server" placeholder="EMAIL"></asp:TextBox>
-                &nbsp;<!-- Send OTP Button --><asp:Button ID="SendOTP" runat="server" Text="SEND OTP" OnClick="SendOTP_Click" CssClass="email-button" OnClientClick="onOtpSent(); return false;" Height="38px" Width="25%" />
+                &nbsp;
+                <asp:Button ID="SendOTP" runat="server" ForeColor="White" Text="SEND OTP" OnClick="SendOTP_Click" CssClass="email-button" OnClientClick="onOtpSent(); return false;" Height="38px" Width="25%" />
                 <span class="error-icon">*</span>
             </div>
 

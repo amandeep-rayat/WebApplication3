@@ -24,6 +24,7 @@
             border-radius: 30px;
             outline: none;
             font-size: 16px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
         }
 
         .search-icon {
@@ -42,6 +43,7 @@
             width: 80%;
             margin: 20px auto;
             border-collapse: collapse;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
         }
 
             .applicant-table th, .applicant-table td {
@@ -55,12 +57,12 @@
                 color: white;
             }
 
-            .applicant-table tr:nth-child(even) {
-                background-color: #f2f2f2;
+            .applicant-table tr {
+                background-color: #ffffff;
             }
 
             .applicant-table tr:hover {
-                background-color: #e6f7ff;
+                background-color: #FAE29C;
             }
 
 
@@ -116,37 +118,19 @@
                 cursor: pointer;
             }
 
-        /* Table Styling */
-        .applicant-table {
-            width: 80%;
-            margin: 0 auto;
-            border-collapse: collapse;
-        }
-
-            .applicant-table th {
-                background-color: #004080;
-                color: white;
-                padding: 15px;
-                text-align: center;
-            }
-
-            .applicant-table td {
-                padding: 15px;
-                border: 1px solid #004080;
-                text-align: center;
-            }
-
-            .applicant-table tr:nth-child(even) {
-                background-color: #f2f2f2;
-            }
-
-            .applicant-table tr:hover {
-                background-color: #e6f7ff;
-            }
+        /* Table Styling */          
 
         .dropdown-icon {
             font-size: 12px;
             margin-left: 5px;
+        }
+
+        .assign {
+            color:white;
+            background-color:black;
+        }
+        .assign:hover {
+            background-color:#2f2e2e;
         }
     </style>
 
@@ -235,7 +219,7 @@
         </tbody>
     </table>
     <div class=" text-end">
-        <asp:Button runat="server" ID="assign" Text="Assign" />
+        <asp:Button runat="server" ID="assign" CssClass="assign" Text="Assign" />
     </div>
 
     <script>

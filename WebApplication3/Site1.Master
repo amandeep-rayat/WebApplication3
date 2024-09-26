@@ -20,6 +20,7 @@
     <style>
         .mh-100 {
             min-height: 80vh;
+            background-color:#FAF0DC;
         }
 
         .min-100 {

@@ -5,7 +5,7 @@
     <main aria-labelledby="title" class="full">
         <div class="d-flex flex-column justify-content-center align-content-center flex-lg-wrap">
             <section class=" align-content-center text-lg-center" aria-labelledby="librariesTitle">
-                <image src="photos/photo.png" alt="logo" style="max-width: 450px;"></image>
+                <image src="photos/photo.png" alt="logo" style="max-width: 400px; width:400px; height:400px; border-radius:50%; box-shadow: 2px 2px 5px 5px rgba(0, 0, 0, 0.5);"></image>
             </section>
             <section class="" style="max-width: 900px" aria-labelledby="hostingTitle">
                 <h4>About Us:</h4>

@@ -96,6 +96,7 @@
             border-radius: 30px;
             outline: none;
             font-size: 16px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
         }
 
         .search-icon {
@@ -113,6 +114,7 @@
         .applicant-table {
             width: 80%;
             margin: 20px auto;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
             border-collapse: collapse;
         }
 
@@ -127,13 +129,13 @@
                 color: white;
             }
 
-            .applicant-table tr:nth-child(even) {
-                background-color: #f2f2f2;
-            }
+            .applicant-table tr {
+                    background-color: #ffffff;
+}
 
-            .applicant-table tr:hover {
-                background-color: #e6f7ff;
-            }
+.applicant-table tr:hover {
+    background-color: #FAE29C;
+}
     </style>
     <!--Centered Search Section with Filter Button -->
     <div class="search-section">

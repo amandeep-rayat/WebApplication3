@@ -26,20 +26,24 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                border: 1px solid #000;
+                border: 0;
                 height: 30vh;
                 cursor: pointer;
                 text-align: center;
                 max-width: none;
                 border-radius:35px;
+                background-color:#FAE29C;
+                box-shadow:0px 12px 16px rgba(0,0,0,0.2);
+                transition:box-shadow 0.5s ease;
+            }
+
+            .card-button:hover{
+                box-shadow:0px 6px 12px rgba(0,0,0,0.3);
+                background-color: #d13672;
             }
 
             .mt-3 {
                 text-align: right;
-            }
-
-            .btn:hover {
-                background-color: #d13672;
             }
         </style>
         <div class="button-grid">

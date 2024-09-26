@@ -24,6 +24,7 @@
             border-radius: 30px;
             outline: none;
             font-size: 16px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
         }
 
         .search-icon {
@@ -38,10 +39,10 @@
 
         /* Add Verifier Button */
         .add-btn {
-            background-color: #004080;
+            background-color: #d13672;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 30px;
             padding: 10px 20px;
             margin-left: 10px;
             cursor: pointer;
@@ -63,6 +64,7 @@
             width: 80%;
             margin: 20px auto;
             border-collapse: collapse;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
         }
 
             .applicant-table th, .applicant-table td {
@@ -76,13 +78,19 @@
                 color: white;
             }
 
-            .applicant-table tr:nth-child(even) {
-                background-color: #f2f2f2;
+            .applicant-table tr {
+                background-color: #ffffff;
             }
 
             .applicant-table tr:hover {
-                background-color: #e6f7ff;
+                background-color: #FAE29C;
             }
+        .confirm-btn {
+            background-color:black;
+        }
+        .confirm-btn:hover {
+            background-color:#2f2e2e;
+        }
     </style>
 
     <div class="search-section">
@@ -142,7 +150,7 @@
         </tbody>
     </table>
     <div style="text-align: center;">
-        <asp:Button ID="ConfirmButton" runat="server" CssClass="confirm-btn" Text="Submit" />
+        <asp:Button ID="ConfirmButton" runat="server" CssClass="confirm-btn p-1" Text="Submit" ForeColor="White" Font-Size="Medium"/>
     </div>
     <script>
         // Function to filter and search applicant by verifier ID, Scholarship, or Status

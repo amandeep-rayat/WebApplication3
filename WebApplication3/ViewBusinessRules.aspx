@@ -14,6 +14,7 @@
             text-align: center;
             position: relative;
             margin-top: 20px;
+            background-color:#FAE29C;
         }
 
         /* Dropdown and Button styles */
@@ -33,6 +34,7 @@
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
         }
 
             .rules-table th, .rules-table td {
@@ -40,12 +42,25 @@
                 padding: 10px;
                 text-align: center;
             }
-
+            td{
+                background-color:white;}
         .rule-input {
             padding: 8px;
             width: 100%;
             border: 1px solid black;
         }
+        /* Confirm Button */
+.confirm-btn {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+    .confirm-btn:hover {
+        background-color: #302f2f;
+    }
         /* Logout Button */
     </style>
 
@@ -62,11 +77,15 @@
 
         <!-- Table for Business Rules with textboxes -->
         <table class="rules-table">
-            <tr>
+            <thead style="background-color: #d13672;">
+
+            <tr class="text-white">
                 <th>S.No.</th>
                 <th>Rule</th>
                 <th>Type</th>
             </tr>
+            </thead>
+            <tbody style="background-color:#FAF0DC;">
             <tr>
                 <td>1</td>
                 <td>
@@ -102,6 +121,7 @@
                 <td>
                     <asp:TextBox ID="Type5" runat="server" CssClass="rule-input" Text="RANGE"></asp:TextBox></td>
             </tr>
+                </tbody>
         </table>
 
     </div>

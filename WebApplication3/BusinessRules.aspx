@@ -12,6 +12,7 @@
             text-align: center;
             position: relative;
             margin-top: 20px;
+            background-color:#FAE29C;
         }
 
         /* Dropdown and Button styles */
@@ -44,18 +45,21 @@
             width: 100%;
             border: 1px solid black;
         }
-
         /* Confirm Button */
         .confirm-btn {
             padding: 10px 20px;
-            background-color: darkblue;
+            background-color: black;
             color: white;
             border: none;
             cursor: pointer;
         }
 
             .confirm-btn:hover {
-                background-color: blue;
+                background-color: #302f2f;
+            }
+
+            td{
+                background-color:white;
             }
         /* END EXTERNAL SOURC
     </style>
@@ -71,11 +75,14 @@
         </div>
         <!-- Table for Business Rules with textboxes -->
         <table class="rules-table">
-            <tr>
+            <thead style="background-color: #d13672;">
+            <tr class="text-white">
                 <th>S.No.</th>
                 <th>Rule</th>
                 <th>Type</th>
             </tr>
+            </thead>
+            <tbody style="background-color:#FAF0DC;">
             <tr>
                 <td>1</td>
                 <td>
@@ -117,6 +124,7 @@
                     <asp:Button ID="ConfirmButton" runat="server" CssClass="confirm-btn" Text="Confirm" OnClick="ConfirmButton_Click" />
                 </td>
             </tr>
+            </tbody>
         </table>
     </div>
     <script>
